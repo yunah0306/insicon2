@@ -99,7 +99,7 @@ def classification(image):
       text_placeholder.empty()
       if category[label] == '확인불가':
         st.write(category)
-        st.write(category[label])
+        st.write(prediction_test)
         st.markdown("""
                 <div style="background-color: #d0d1f6; color: #000000; padding: 10px;">
                     확인이 불가합니다. 올바르게 배출해주세요. 
