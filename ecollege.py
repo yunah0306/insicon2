@@ -96,6 +96,7 @@ def classification(image):
   result = []
   for i in prediction_test:
       label = i.argmax() # [0.000, 0.000, 0.000, ..., 0.000, 1.000, 0.000] 중 최대값 추출 즉,1값의 인덱스
+      text_placeholder.empty()
       if category[label] == '확인불가':
         st.text('확인이 불가합니다. 올바르게 배출해주세요')
       else:
@@ -174,15 +175,16 @@ if option == '재활용품 분리배출 하러 가기':
   
   st.write("")
   upload_file = st.file_uploader('쓰레기를 올려주세요',type=['jpg', 'png', 'jpeg'])
+  text_placeholder = st.empty()
   if upload_file is not None:
-    st.write('이미지 인식을 시작합니다')
+    text_placeholder.text('이미지 인식을 시작합니다')
     # 이미지 출력
     img = Image.open(upload_file)
     img = img.resize((256,256))
     st.image(img)
     # 로딩 화면
-    with st.spinner('Wait for it...'):
-      time.sleep(3)
+    #with st.spinner('Wait for it...'):
+      #time.sleep(3)
     # 이미지 인식
     with tempfile.NamedTemporaryFile(delete=False, suffix=os.path.splitext(upload_file.name)[1]) as temp_file:
       img.save(temp_file.name,)
