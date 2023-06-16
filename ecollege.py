@@ -136,30 +136,41 @@ if option == '영수증 인식하러 가기':
 if option == '재활용품 분리배출 하러 가기':
   st.subheader("🌳재활용품 분리배출")
   if st.expander('반납 방법 알아보기'):
-    img1 = st.image(Image.open(upload_file))
-    st.markdown("""
-                <div style="background-color: #d0d1f6; color: #000000; padding: 10px;">
-                    안의 액체를 모두 버린 후, 라벨을 제거하고 최대한 압축하여 배출구 위에 올려주세요..
-                </div>
-                """.format(st.session_state['point']), unsafe_allow_html=True) 
+    st.image(Image.open('안내 사진/음료 투입.png'))
     st.markdown("""
                 <div style="background-color: #d0d1f6; color: #000000; padding: 10px;">
                     음료는 아래에 있는 음료 투입구에 버려주세요
-                    플라스틱은 라벨을 제거하고 최대한 압축하여 배출구 위에 올려주세요.
-                    캔은 찌그러뜨려서 올려주세요.
-                    유리병은 라벨과 뚜껑을 함께 배출해주세요.
                 </div>
-                """.format(st.session_state['point']), unsafe_allow_html=True)
+                """.format(st.session_state['point']), unsafe_allow_html=True) 
+    st.image(Image.open('안내 사진/'))
+    st.markdown("""
+                <div style="background-color: #d0d1f6; color: #000000; padding: 10px;">
+                    플라스틱은 라벨을 제거하고 최대한 압축하여 배출구 위에 올려주세요
+                </div>
+                """.format(st.session_state['point']), unsafe_allow_html=True) 
+    st.image(Image.open('안내 사진/'))
+    st.markdown("""
+                <div style="background-color: #d0d1f6; color: #000000; padding: 10px;">
+                    캔은 찌그러뜨려서 올려주세요
+                </div>
+                """.format(st.session_state['point']), unsafe_allow_html=True) 
+    st.image(Image.open('안내 사진/'))
+    st.markdown("""
+                <div style="background-color: #d0d1f6; color: #000000; padding: 10px;">
+                    유리병은 라벨과 뚜껑을 함께 배출해주세요
+                </div>
+                """.format(st.session_state['point']), unsafe_allow_html=True) 
   
-  #trash_option = st.selectbox('어떤 종류의 쓰레기를 배출하나요?',
-                       #('유리','캔','플라스틱'))
 
   upload_file = st.file_uploader('이미지를 인식합니다.', type=['jpg', 'png', 'jpeg'])
   if upload_file is not None:
-    # 이미지 열기
+    # 이미지 출력
     img = Image.open(upload_file)
     img = img.resize((256,256))
     st.image(img)
+    # 로딩 화면
+    with st.spinner('Wait for it...'):
+      time.sleep(3)
     # 이미지 인식
     with tempfile.NamedTemporaryFile(delete=False, suffix=os.path.splitext(upload_file.name)[1]) as temp_file:
       img.save(temp_file.name,)
