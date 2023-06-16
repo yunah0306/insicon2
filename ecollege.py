@@ -110,10 +110,14 @@ st.header("Ecollege")
 option = st.sidebar.selectbox(
       '메뉴',
     ('서비스를 선택해주세요','영수증 인식하러 가기', '재활용품 분리배출 하러 가기'))
-st.write(option[:-3],'하러 가볼까요?')
 
 if option == '영수증 인식하러 가기':
   st.subheader("🌱영수증 인식")
+  st.markdown("""
+        <div style="background-color: #f6f5d0; color: #000000; padding: 10px;">
+        종이 영수증 대신 전자 영수증을 발급하면 환경 보호에 더 도움이 돼요!
+        </div>
+        """.format(st.session_state['point']), unsafe_allow_html=True)
   upload_file = st.file_uploader('사진을 업로드 해주세요', type=['jpg', 'png', 'jpeg'])
   if upload_file is not None:
     # 이미지 열기
