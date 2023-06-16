@@ -98,9 +98,17 @@ def classification(image):
       label = i.argmax() # [0.000, 0.000, 0.000, ..., 0.000, 1.000, 0.000] 중 최대값 추출 즉,1값의 인덱스
       text_placeholder.empty()
       if category[label] == '확인불가':
-        st.text('확인이 불가합니다. 올바르게 배출해주세요')
+        st.markdown("""
+                <div style="background-color: #d0d1f6; color: #000000; padding: 10px;">
+                    확인이 불가합니다. 올바르게 배출해주세요. 
+                </div>
+                """.format(st.session_state['point']), unsafe_allow_html=True) 
       else:
-        st.text(f'{category[label]}을 배출하셨습니다. 포인트가 지급되었습니다!')
+        st.markdown("""
+                <div style="background-color: #d0d1f6; color: #000000; padding: 10px;">
+                    {}을(를) 배출하셨습니다. 포인트가 지급되었습니다!
+                </div>
+                """.format(escape(category[label])), unsafe_allow_html=True)
   
 if 'point' not in st.session_state:
   st.session_state['point'] = 0
