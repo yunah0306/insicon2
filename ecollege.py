@@ -110,7 +110,7 @@ st.header("Ecollege")
 option = st.sidebar.selectbox(
       '메뉴',
     ('','영수증 인식하러 가기', '재활용품 분리배출 하러 가기')
-st.write(option,'하러 가볼까요?')
+# st.write(option,'하러 가볼까요?')
 
 if option == '영수증 인식하러 가기':
   st.subheader("🌱영수증 인식")
