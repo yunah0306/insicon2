@@ -93,10 +93,13 @@ def classification(image):
   prediction_test = model.predict(x)
 
   file_index = 0
+  result = []
   for i in prediction_test:
       label = i.argmax() # [0.000, 0.000, 0.000, ..., 0.000, 1.000, 0.000] 중 최대값 추출 즉,1값의 인덱스
-      st.write(category[label],'를 반납하셨습니다. 포인트가 지급되었습니다!')
-      file_index  = file_index+1
+  if category[label] == '확인불가':
+    st.text('확인이 불가합니다. 올바르게 배출해주세요')
+  else:
+    st.text(f'{category[label]}을 배출하셨습니다. 포인트가 지급되었습니다!')
   
   
   
@@ -124,18 +127,16 @@ if option == '영수증 적립':
       
         
 if option == '쓰레기 배출':
-  trash_option = st.selectbox('어떤 종류의 쓰레기를 배출하나요?',
-                       ('유리','캔','플라스틱'))
-  if trash_option is not None:
-    upload_file = st.file_uploader('이미지를 인식합니다.', type=['jpg', 'png', 'jpeg'])
-    if upload_file is not None:
-      # 이미지 열기
-      img = Image.open(upload_file)
-      img = img.resize((256,256))
-      st.image(img)
-      # OCR
-      with tempfile.NamedTemporaryFile(delete=False, suffix=os.path.splitext(upload_file.name)[1]) as temp_file:
-        img.save(temp_file.name,)
-        classification(temp_file.name)
-  # trash_option이랑 모델 결과가 같으면 
-  # trash_option을 배출했어요. 포인트는 ~~
+  #trash_option = st.selectbox('어떤 종류의 쓰레기를 배출하나요?',
+                       #('유리','캔','플라스틱'))
+
+  upload_file = st.file_uploader('이미지를 인식합니다.', type=['jpg', 'png', 'jpeg'])
+  if upload_file is not None:
+    # 이미지 열기
+    img = Image.open(upload_file)
+    img = img.resize((256,256))
+    st.image(img)
+    # 이미지 인식
+    with tempfile.NamedTemporaryFile(delete=False, suffix=os.path.splitext(upload_file.name)[1]) as temp_file:
+      img.save(temp_file.name,)
+      classification(temp_file.name)
