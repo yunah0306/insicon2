@@ -136,6 +136,12 @@ if option == '영수증 인식하러 가기':
 if option == '재활용품 분리배출 하러 가기':
   st.subheader("🌳재활용품 분리배출")
   if st.expander('반납 방법 알아보기'):
+    img1 = st.image(Image.open(upload_file))
+    st.markdown("""
+                <div style="background-color: #d0d1f6; color: #000000; padding: 10px;">
+                    안의 액체를 모두 버린 후, 라벨을 제거하고 최대한 압축하여 배출구 위에 올려주세요..
+                </div>
+                """.format(st.session_state['point']), unsafe_allow_html=True) 
     st.markdown("""
                 <div style="background-color: #d0d1f6; color: #000000; padding: 10px;">
                     음료는 아래에 있는 음료 투입구에 버려주세요
