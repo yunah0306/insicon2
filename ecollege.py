@@ -74,6 +74,7 @@ def classification(image):
   # 예측
   f = image
   category = os.listdir('dataset')
+  category = sorted(category, reverse=True)
 
   image_w = 64
   image_h = 64
