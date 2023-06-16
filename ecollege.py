@@ -101,7 +101,8 @@ def classification(image):
       else:
         st.text(f'{category[label]}을 배출하셨습니다. 포인트가 지급되었습니다!')
   
-  
+if 'point' not in st.session_state:
+  st.session_state['point'] = 0
   
 ### 앱 화면 ###  
 st.title('에코리지')
@@ -134,7 +135,7 @@ if option == '영수증 인식하러 가기':
         
 if option == '재활용품 분리배출 하러 가기':
   st.subheader("🌳재활용품 분리배출")
-  if st.button('반납 방법 알아보기'):
+  if st.expander('반납 방법 알아보기'):
     st.markdown("""
                 <div style="background-color: #d0d1f6; color: #000000; padding: 10px;">
                     음료는 아래에 있는 음료 투입구에 버려주세요
