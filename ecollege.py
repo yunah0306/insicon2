@@ -142,19 +142,19 @@ if option == '재활용품 분리배출 하러 가기':
                     음료는 아래에 있는 음료 투입구에 버려주세요
                 </div>
                 """.format(st.session_state['point']), unsafe_allow_html=True) 
-    st.image(Image.open('안내 사진/페트병 분리수거'))
+    st.image(Image.open('안내 사진/페트병 분리수거.png'))
     st.markdown("""
                 <div style="background-color: #d0d1f6; color: #000000; padding: 10px;">
                     페트병은 라벨을 제거하고 최대한 압축하여 배출구 위에 올려주세요
                 </div>
                 """.format(st.session_state['point']), unsafe_allow_html=True) 
-    st.image(Image.open('안내 사진/캔분리수거'))
+    st.image(Image.open('안내 사진/캔분리수거.png'))
     st.markdown("""
                 <div style="background-color: #d0d1f6; color: #000000; padding: 10px;">
                     캔은 찌그러뜨려서 올려주세요
                 </div>
                 """.format(st.session_state['point']), unsafe_allow_html=True) 
-    st.image(Image.open('안내 사진/유리분리수거'))
+    st.image(Image.open('안내 사진/유리분리수거.png'))
     st.markdown("""
                 <div style="background-color: #d0d1f6; color: #000000; padding: 10px;">
                     유리병은 라벨과 뚜껑의 재질이 다를 경우 분리해서 배출해주세요
