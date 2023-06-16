@@ -96,10 +96,10 @@ def classification(image):
   result = []
   for i in prediction_test:
       label = i.argmax() # [0.000, 0.000, 0.000, ..., 0.000, 1.000, 0.000] 중 최대값 추출 즉,1값의 인덱스
-  if category[label] == '확인불가':
-    st.text('확인이 불가합니다. 올바르게 배출해주세요')
-  else:
-    st.text(f'{category[label]}을 배출하셨습니다. 포인트가 지급되었습니다!')
+      if category[label] == '확인불가':
+        st.text('확인이 불가합니다. 올바르게 배출해주세요')
+      else:
+        st.text(f'{category[label]}을 배출하셨습니다. 포인트가 지급되었습니다!')
   
   
   
