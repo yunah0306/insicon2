@@ -144,7 +144,7 @@ if option == '재활용품 분리배출 하러 가기':
                     음료는 아래에 있는 음료 투입구에 버려주세요
                 </div>
                 """.format(st.session_state['point']), unsafe_allow_html=True) 
-    print('\n')
+    st.markdown("<br>")
     img = Image.open('안내 사진/페트병 분리수거.png')
     img = img.resize((256, 256))
     st.image(img)
@@ -153,7 +153,7 @@ if option == '재활용품 분리배출 하러 가기':
                     페트병은 라벨을 제거하고 최대한 압축하여 배출구 위에 올려주세요
                 </div>
                 """.format(st.session_state['point']), unsafe_allow_html=True) 
-    print('\n')
+    st.markdown("<br>")
     img = Image.open('안내 사진/캔분리수거.png')
     img = img.resize((256, 256))
     st.image(img)
@@ -162,7 +162,7 @@ if option == '재활용품 분리배출 하러 가기':
                     캔은 찌그러뜨려서 올려주세요
                 </div>
                 """.format(st.session_state['point']), unsafe_allow_html=True) 
-    print('\n')
+    st.markdown("<br>")
     img = Image.open('안내 사진/유리분리수거.png')
     img = img.resize((256, 256))
     st.image(img)
@@ -172,7 +172,7 @@ if option == '재활용품 분리배출 하러 가기':
                 </div>
                 """.format(st.session_state['point']), unsafe_allow_html=True) 
   
-  print('\n')
+  st.markdown("<br>")
   upload_file = st.file_uploader('이미지를 인식합니다.', type=['jpg', 'png', 'jpeg'])
   if upload_file is not None:
     # 이미지 출력
