@@ -10,7 +10,7 @@ import time
 import re
 import tempfile
 from matplotlib import pyplot as plt
-import cv2
+# import cv2
 
 import requests
 import uuid
