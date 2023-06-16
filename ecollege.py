@@ -67,13 +67,13 @@ def extract_text(file):
 
 ## 쓰레기 인식 함수 ##
 def classification(image):
-  model_path = 'C:/Users/user/Desktop/yunah/insicon2/model_2'
+  model_path = 'model_2'
 
   model = load_model(model_path)
   
   # 예측
   f = image
-  category = os.listdir('C:/Users/user/Desktop/yunah/insicon2/dataset')
+  category = os.listdir('dataset')
 
   image_w = 64
   image_h = 64
