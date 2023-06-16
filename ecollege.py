@@ -107,26 +107,39 @@ def classification(image):
 st.title('에코리지')
 st.header("Ecollege")
 
-option = st.selectbox('서비스를 선택해주세요',
-                       ('영수증 적립','쓰레기 배출'))
+option = st.sidebar.selectbox(
+      '메뉴',
+    ('','영수증 인식하러 가기', '재활용품 분리배출 하러 가기')
 st.write(option,'하러 가볼까요?')
 
-if option == '영수증 적립':
-    upload_file = st.file_uploader('사진을 업로드 해주세요', type=['jpg', 'png', 'jpeg'])
-    if upload_file is not None:
-      # 이미지 열기
-      img = Image.open(upload_file)
-      img = img.resize((256,512))
-      st.image(img)
-      # OCR
-      with tempfile.NamedTemporaryFile(delete=False, suffix=os.path.splitext(upload_file.name)[1]) as temp_file:
-        img.save(temp_file.name,)
-        extract_text(temp_file.name)
+if option == '영수증 인식하러 가기':
+  st.subheader("🌱영수증 인식")
+  upload_file = st.file_uploader('사진을 업로드 해주세요', type=['jpg', 'png', 'jpeg'])
+  if upload_file is not None:
+    # 이미지 열기
+    img = Image.open(upload_file)
+    img = img.resize((256,512))
+    st.image(img)
+    # OCR
+    with tempfile.NamedTemporaryFile(delete=False, suffix=os.path.splitext(upload_file.name)[1]) as temp_file:
+      img.save(temp_file.name,)
+      extract_text(temp_file.name)
 
       
       
         
-if option == '쓰레기 배출':
+if option == '재활용품 분리배출 하러 가기':
+  st.subheader("🌳재활용품 분리배출 하러 가기")
+  if st.button('반납 방법 알아보기'):
+    st.markdown("""
+                <div style="background-color: #d0d1f6; color: #000000; padding: 10px;">
+                    음료는 아래에 있는 음료 투입구에 버려주세요
+                    플라스틱은 라벨을 제거하고 최대한 압축하여 배출구 위에 올려주세요.
+                    캔은 찌그러뜨려서 올려주세요.
+                    유리병은 라벨과 뚜껑을 함께 배출해주세요.
+                </div>
+                """.format(st.session_state['point']), unsafe_allow_html=True)
+  
   #trash_option = st.selectbox('어떤 종류의 쓰레기를 배출하나요?',
                        #('유리','캔','플라스틱'))
 
