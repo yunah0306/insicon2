@@ -124,8 +124,7 @@ option = st.sidebar.selectbox(
 img = Image.open("안내 사진/영수증픽토그램.jpg")
 img = img.resize((256, 256))
 st.image(img)
-#if clicked.button("이미지 클릭"):
-  #st.write('이미지가 클릭되었습니다')
+selected_item = st.radio("Radio Part", ("영수증 인식하러 가기"))
 
 
 
