@@ -68,7 +68,7 @@ def extract_text(file):
 
 ## 쓰레기 인식 함수 ##
 def classification(image):
-  url = 'https://drive.google.com/drive/folders/1zf2qMlHKqp1kKVYRgy_ty8zqHMnGPNH0?usp=sharing'
+  url = 'https://drive.google.com/uc?id=1zf2qMlHKqp1kKVYRgy_ty8zqHMnGPNH0'
   response = requests.get(url)
   model_bytes = BytesIO(response.content)
   model = load_model(model_bytes)
