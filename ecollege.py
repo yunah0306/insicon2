@@ -133,7 +133,11 @@ with col2:
     
 if checkbox1:
   checkbox2 = False
-  st.write('영수증 인식하러 가볼까요?)
+  st.write('영수증 인식하러 가볼까요?')
+if checkbox2:
+  checkbox1 = False
+  st.write('재활용품 분리배출하러 가볼까요?')
+  
            
            
 
