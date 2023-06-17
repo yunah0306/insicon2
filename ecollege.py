@@ -68,7 +68,7 @@ def extract_text(file):
 
 ## 쓰레기 인식 함수 ##
 def classification(image):
-  url = "https://drive.google.com/drive/folders/1zf2qMlHKqp1kKVYRgy_ty8zqHMnGPNH0?usp=drive_link"
+  url = "https://drive.google.com/drive/folders/1-FvtWlYzdrqtwGqrfGW9D2E1-INxP1SF"
   # URL을 통해 모델 파일 다운로드
   model_path = keras.utils.get_file("classification_model", url)
   model = keras.models.load_model(model_path)
