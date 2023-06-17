@@ -73,46 +73,25 @@ def classification(image):
   
   # 예측
   f = image
-  category = os.listdir('dataset')
-  category = sorted(category, reverse=True)
-
   image_w = 64
   image_h = 64
 
   pixels = image_h * image_w * 3
+  labels = ['캔','플라스틱','확인불가','유리']
 
-  x = []
-  filenames = []
-
+  # labels = list(data_dict.keys())
+  # data_dict = {'캔':can,'플라스틱':plastic,'확인불가':polluted,'유리':glass}
   img = Image.open(f)
   img = img.convert("RGB")
   img = img.resize((image_w, image_h))
   data = np.asarray(img)
-  filenames.append(f)
-  x.append(data)
-  x = np.array(x)
-  prediction_test = model.predict(x)
 
-  file_index = 0
-  result = []
-  for i in prediction_test:
-      label = i.argmax() # [0.000, 0.000, 0.000, ..., 0.000, 1.000, 0.000] 중 최대값 추출 즉,1값의 인덱스
-      if category[label] == '확인불가':
-        st.write(category)
-        st.write(prediction_test)
-        st.markdown("""
-                <div style="background-color: #d0d1f6; color: #000000; padding: 10px;">
-                    확인이 불가합니다. 올바르게 배출해주세요. 
-                </div>
-                """.format(st.session_state['point']), unsafe_allow_html=True) 
-      else:
-        st.write(category)
-        st.write(category[label])
-        st.markdown("""
-                <div style="background-color: #d0d1f6; color: #000000; padding: 10px;">
-                    {}을(를) 배출하셨습니다. 포인트가 지급되었습니다!
-                </div>
-                """.format(category[label]), unsafe_allow_html=True)
+  prediction = model.predict(np.expand_dims(data, axis=0))
+  predicted_class_index = np.argmax(prediction)
+  predicted_label = labels[predicted_class_index]
+  st.write("Predicted label:", predicted_label)
+
+  
   
 if 'point' not in st.session_state:
   st.session_state['point'] = 0
