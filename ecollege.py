@@ -97,7 +97,6 @@ def classification(image):
   result = []
   for i in prediction_test:
       label = i.argmax() # [0.000, 0.000, 0.000, ..., 0.000, 1.000, 0.000] 중 최대값 추출 즉,1값의 인덱스
-      text_placeholder.empty()
       if category[label] == '확인불가':
         st.write(category)
         st.write(prediction_test)
