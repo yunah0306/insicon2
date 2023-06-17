@@ -121,11 +121,17 @@ option = st.sidebar.selectbox(
       '실천하기',
     ('서비스를 선택해주세요','영수증 인식하러 가기', '재활용품 분리배출 하러 가기'))
 
-clicked = st.image("안내 사진/")
-if clicked.button("이미지 클릭")
-img = Image.open('안내 사진/음료 투입.png')
-    img = img.resize((256, 256))
-    st.image(img)
+img = st.image("안내 사진/영수증픽토그램.png")
+img = img.resize((256, 256))
+clicked = st.image(img)
+if clicked.button("이미지 클릭"):
+  st.write('이미지가 클릭되었습니다')
+
+
+
+
+
+
 
 ## 영수증 인식 페이지 ##
 if option == '영수증 인식하러 가기':
