@@ -72,32 +72,6 @@ def classification(image):
   model = load_model(file_path)
   
   # 예측
-  '''
-  f = image
-  image_w = 64
-  image_h = 64
-
-  pixels = image_h * image_w * 3
-
-  x = []
-  labels = ['캔', '플라스틱', '확인불가','유리']
-  # labels = list(data_dict.keys())
-  # data_dict = {'캔':can,'플라스틱':plastic,'확인불가':polluted,'유리':glass}
-  img = Image.open(f)
-  img = img.convert("RGB")
-  img = img.resize((image_w, image_h))
-  data = np.asarray(img)
-
-  prediction = model.predict(np.expand_dims(data, axis=0))
-  predicted_class_index = np.argmax(prediction)
-  predicted_label = labels[predicted_class_index]
-  st.write("Predicted label:", predicted_label)
-  category = os.listdir('dataset')
-  reverse_category =  sorted(category, reverse=True)
-  st.write(category)
-  st.write(reverse_category)
-  st.write(labels)
-  '''
   f = image
   category = os.listdir('dataset')
   category = sorted(category, reverse=True)
@@ -140,6 +114,7 @@ def classification(image):
                     {}을(를) 배출하셨습니다. 포인트가 지급되었습니다!
                 </div>
                 """.format(escape(category[label])), unsafe_allow_html=True)
+        
   
 if 'point' not in st.session_state:
   st.session_state['point'] = 0
