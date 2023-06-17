@@ -177,7 +177,7 @@ if option == '재활용품 분리배출 하러 가기':
                 """.format(st.session_state['point']), unsafe_allow_html=True) 
   
   st.write("")
-  upload_file = st.file_uploader('쓰레기를 올려주세요',type=['jpg', 'png', 'jpeg'])
+  upload_file = st.file_uploader('쓰레기를 투입구 위에 올려주세요',type=['jpg', 'png', 'jpeg'])
   text_placeholder = st.empty()
   if upload_file is not None:
     text_placeholder.text('이미지 인식을 시작합니다')
