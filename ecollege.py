@@ -92,13 +92,13 @@ def classification(image):
   price_dict = {'캔':30, '플라스틱': 20, '유리': 20}
   if predicted_label == '확인불가':
     st.markdown("""
-                <div style="background-color: #6eaa5e; color: #000000; padding: 10px;">
+                <div style="background-color: #dbead5; color: #000000; padding: 10px;">
                     확인이 불가합니다. 올바르게 배출해주세요. 
                 </div>
                 """.format(st.session_state['point']), unsafe_allow_html=True) 
   else:
     st.markdown("""
-            <div style="background-color: #6eaa5e; color: #000000; padding: 10px;">
+            <div style="background-color: #dbead5; color: #000000; padding: 10px;">
                 {}을(를) 배출하셨습니다. {}포인트가 지급되었습니다!
             </div>
             """.format(predicted_label,price_dict[predicted_label]), unsafe_allow_html=True)
@@ -119,7 +119,7 @@ option = st.sidebar.selectbox(
 if option == '영수증 인식하러 가기':
   st.subheader("🌱영수증 인식")
   st.markdown("""
-        <div style="background-color: #f6f5d0; color: #000000; padding: 10px;">
+        <div style="background-color: #dbead5; color: #000000; padding: 10px;">
         종이 영수증 대신 전자 영수증을 발급하면 환경 보호에 더 도움이 돼요!
         </div>
         """.format(st.session_state['point']), unsafe_allow_html=True)
@@ -139,12 +139,12 @@ if option == '영수증 인식하러 가기':
         
 if option == '재활용품 분리배출 하러 가기':
   st.subheader("🌳재활용품 분리배출")
-  if st.button("반납 방법 알아보기",help="color: #dbead5"):
+  if st.button("반납 방법 알아보기"):
     img = Image.open('안내 사진/음료 투입.png')
     img = img.resize((256, 256))
     st.image(img)
     st.markdown("""
-                <div style="background-color: #d0d1f6; color: #000000; padding: 10px;">
+                <div style="background-color: #dbead5; color: #000000; padding: 10px;">
                     음료는 아래에 있는 음료 투입구에 버려주세요 
                 </div>
                 """.format(st.session_state['point']), unsafe_allow_html=True) 
@@ -153,7 +153,7 @@ if option == '재활용품 분리배출 하러 가기':
     img = img.resize((256, 256))
     st.image(img)
     st.markdown("""
-                <div style="background-color: #d0d1f6; color: #000000; padding: 10px;">
+                <div style="background-color: #dbead5; color: #000000; padding: 10px;">
                     페트병은 라벨을 제거하고 최대한 압축하여 배출구 위에 올려주세요 
                 </div>
                 """.format(st.session_state['point']), unsafe_allow_html=True) 
@@ -162,7 +162,7 @@ if option == '재활용품 분리배출 하러 가기':
     img = img.resize((256, 256))
     st.image(img)
     st.markdown("""
-                <div style="background-color: #d0d1f6; color: #000000; padding: 10px;">
+                <div style="background-color: #dbead5; color: #000000; padding: 10px;">
                     캔은 찌그러뜨려서 올려주세요 
                 </div>
                 """.format(st.session_state['point']), unsafe_allow_html=True) 
@@ -171,7 +171,7 @@ if option == '재활용품 분리배출 하러 가기':
     img = img.resize((256, 256))
     st.image(img)
     st.markdown("""
-                <div style="background-color: #d0d1f6; color: #000000; padding: 10px;">
+                <div style="background-color: #dbead5; color: #000000; padding: 10px;">
                     유리병은 라벨과 뚜껑의 재질이 다를 경우 분리해서 배출해주세요 
                 </div>
                 """.format(st.session_state['point']), unsafe_allow_html=True) 
