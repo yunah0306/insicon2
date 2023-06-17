@@ -18,7 +18,6 @@ import time
 import json
 
 from tensorflow.keras.models import load_model
-from io import BytesIO
 
 ## OCR 인식 함수 ##
 def extract_text(file):
@@ -110,7 +109,11 @@ def classification(image):
       else:
         st.write(category)
         st.write(category[label])
-        
+        st.markdown("""
+                <div style="background-color: #d0d1f6; color: #000000; padding: 10px;">
+                    {}을(를) 배출하셨습니다. 포인트가 지급되었습니다!
+                </div>
+                """.format(escape(category[label])), unsafe_allow_html=True)
   
 if 'point' not in st.session_state:
   st.session_state['point'] = 0
