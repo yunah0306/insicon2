@@ -192,3 +192,4 @@ if option == '재활용품 분리배출 하러 가기':
     with tempfile.NamedTemporaryFile(delete=False, suffix=os.path.splitext(upload_file.name)[1]) as temp_file:
       img.save(temp_file.name,)
       classification(temp_file.name)
+    text_placeholder.empty()
