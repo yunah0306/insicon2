@@ -169,12 +169,13 @@ if option == '영수증 인식하러 가기':
         """.format(st.session_state['point']), unsafe_allow_html=True)
   option2 = st.selectbox(
         '영수증 종류를 선택해주세요.',
-        ('전자영수증', '실물영수증')
-    )
-  if option2 == '전자영수증'
+        ('전자영수증', '실물영수증'))
+  
+  if option2 == '전자영수증':
     upload_file = st.file_uploader('전자영수증을 업로드해주세요', type=['jpg', 'png', 'jpeg'])
   else:
     upload_file = st.file_uploader('실물 영수증을 촬영해주세요 ', type=['jpg', 'png', 'jpeg'])
+    
   if upload_file is not None:
     # 이미지 열기
     img = Image.open(upload_file)
