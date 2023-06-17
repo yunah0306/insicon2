@@ -123,9 +123,9 @@ option = st.sidebar.selectbox(
 
 img = Image.open("안내 사진/영수증픽토그램.jpg")
 img = img.resize((256, 256))
-clicked = st.image(img)
-if clicked.button("이미지 클릭"):
-  st.write('이미지가 클릭되었습니다')
+st.image(img)
+#if clicked.button("이미지 클릭"):
+  #st.write('이미지가 클릭되었습니다')
 
 
 
