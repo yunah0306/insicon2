@@ -91,6 +91,10 @@ def classification(image):
   predicted_class_index = np.argmax(prediction)
   predicted_label = labels[predicted_class_index]
   st.write("Predicted label:", predicted_label)
+  category = os.listdir('dataset')
+  reverse_category =  sorted(category, reverse=True)
+  st.write(category)
+  st.write(reverse_category)
   '''
   f = image
   category = os.listdir('dataset')
