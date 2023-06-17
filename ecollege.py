@@ -68,8 +68,10 @@ def extract_text(file):
 
 ## 쓰레기 인식 함수 ##
 def classification(image):
-  file_path = 'model_2'
-  model = load_model(file_path)
+  url = "https://drive.google.com/drive/folders/1zf2qMlHKqp1kKVYRgy_ty8zqHMnGPNH0?usp=drive_link"
+  # URL을 통해 모델 파일 다운로드
+  model_path = keras.utils.get_file("classification_model", url)
+  model = keras.models.load_model(model_path)
   
   # 예측
   f = image
@@ -95,7 +97,10 @@ def classification(image):
   reverse_category =  sorted(category, reverse=True)
   st.write(category)
   st.write(reverse_category)
+  st.write(labels)
   '''
+  file_path = 'model_2'
+  model = load_model(file_path)
   f = image
   category = os.listdir('dataset')
   category = sorted(category, reverse=True)
