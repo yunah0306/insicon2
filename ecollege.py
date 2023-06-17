@@ -68,20 +68,11 @@ def extract_text(file):
 
 ## 쓰레기 인식 함수 ##
 def classification(image):
-  
-  url = "https://github.com/yunah0306/insicon2/blob/4639d730c0fc75eb8c537eaca5474cfc582dd82a/classification_model/variables/variables.data-00000-of-00001"
-  # variables.data-00000-of-00001 파일 다운로드
-  response = requests.get(url)
-  with open("variables.data-00000-of-00001", "wb") as f:
-      f.write(response.content)
-
-  # TensorFlow 모델 로드
-  model = tf.keras.models.load_model("https://github.com/yunah0306/insicon2/tree/bda51a14f0f864171b76c46fa7dcb42a35f797b2/classification_model", compile=False)
-
-  # 가중치 불러오기
-  model.load_weights("variables.data-00000-of-00001")
+  file_path = 'model_2'
+  model = load_model(file_path)
   
   # 예측
+  '''
   f = image
   image_w = 64
   image_h = 64
@@ -107,8 +98,6 @@ def classification(image):
   st.write(reverse_category)
   st.write(labels)
   '''
-  file_path = 'model_2'
-  model = load_model(file_path)
   f = image
   category = os.listdir('dataset')
   category = sorted(category, reverse=True)
@@ -151,7 +140,6 @@ def classification(image):
                     {}을(를) 배출하셨습니다. 포인트가 지급되었습니다!
                 </div>
                 """.format(escape(category[label])), unsafe_allow_html=True)
-   '''
   
 if 'point' not in st.session_state:
   st.session_state['point'] = 0
