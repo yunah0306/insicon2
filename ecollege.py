@@ -59,7 +59,7 @@ def extract_text(file):
           if target_word in word:
             count += 1
             used.append(target_word)
-  setence = ', '.join(used)
+  sentence = ', '.join(used)
   point = 10 * count
   st.markdown("""
             <div style="background-color: #dbead5; color: #000000; padding: 10px;">
