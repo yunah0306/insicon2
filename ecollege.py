@@ -124,7 +124,7 @@ option = st.sidebar.selectbox(
 img = Image.open("안내 사진/영수증픽토그램.jpg")
 img = img.resize((256, 256))
 st.image(img)
-selected_item = st.radio("Radio Part", ("영수증 인식하러 가기"))
+st.checkbox('영수증 인식하러 가기')
 
 
 
