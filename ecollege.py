@@ -70,7 +70,7 @@ def extract_text(file):
 def classification(image):
   
   url = "https://drive.google.com/uc?id=1-FvtWlYzdrqtwGqrfGW9D2E1-INxP1SF"
-  model_path = keras.utils.get_file("classification_model", url, untar=True)
+  model_path = keras.utils.get_file("classification_model", url, untar=False)
   model = keras.models.load_model(model_path)
   
   # 예측
