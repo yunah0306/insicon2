@@ -68,8 +68,17 @@ def extract_text(file):
 
 ## 쓰레기 인식 함수 ##
 def classification(image):
-  file_path = 'classification_model'
-  model = load_model(file_path)
+  url = "https://github.com/yunah0306/insicon2/blob/4639d730c0fc75eb8c537eaca5474cfc582dd82a/classification_model/variables/variables.data-00000-of-00001"
+  # variables.data-00000-of-00001 파일 다운로드
+  response = requests.get(url)
+  with open("variables.data-00000-of-00001", "wb") as f:
+      f.write(response.content)
+
+  # TensorFlow 모델 로드
+  model = tf.keras.models.load_model("classification_model", compile=False)
+
+  # 가중치 불러오기
+  model.load_weights("variables.data-00000-of-00001")
   
   # 예측
   f = image
