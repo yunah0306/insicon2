@@ -89,7 +89,18 @@ def classification(image):
   prediction = model.predict(np.expand_dims(data, axis=0))
   predicted_class_index = np.argmax(prediction)
   predicted_label = labels[predicted_class_index]
-  st.write("Predicted label:", predicted_label)
+  if predicted_label == '확인불가':
+        st.markdown("""
+                <div style="background-color: #d0d1f6; color: #000000; padding: 10px;">
+                    확인이 불가합니다. 올바르게 배출해주세요. 
+                </div>
+                """.format(st.session_state['point']), unsafe_allow_html=True) 
+      else:
+        st.markdown("""
+                <div style="background-color: #d0d1f6; color: #000000; padding: 10px;">
+                    {}을(를) 배출하셨습니다. 포인트가 지급되었습니다!
+                </div>
+                """.format(predicted_label), unsafe_allow_html=True)
 
   
   
