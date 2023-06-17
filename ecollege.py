@@ -68,7 +68,7 @@ def extract_text(file):
 
 ## 쓰레기 인식 함수 ##
 def classification(image):
-  file_path = 'classification_model'
+  file_path = 'model_2'
   model = load_model(file_path)
   
   # 예측
