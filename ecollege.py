@@ -65,7 +65,7 @@ def extract_text(file):
                 <div style="background-color: #dbead5; color: #000000; padding: 10px;">
                     {setence}을(를) 이용하셨군요! {point}포인트가 지급되었습니다! 
                 </div>
-                """.format(sentence,), unsafe_allow_html=True) 
+                """.format(sentence,point) unsafe_allow_html=True) 
   
   
 
