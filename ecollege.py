@@ -139,7 +139,20 @@ if option == '영수증 인식하러 가기':
         
 if option == '재활용품 분리배출 하러 가기':
   st.subheader("🌳재활용품 분리배출")
-  if st.button("반납 방법 알아보기"):
+  button_style = """
+    <style>
+    .custom-button {
+        color: #FFFFFF; /* 글씨체 색상 */
+        background-color: #336699; /* 배경색상 */
+        padding: 0.5rem 1rem;
+        border-radius: 5px;
+        border: none;
+    }
+    </style>
+"""
+  st.markdown(button_style, unsafe_allow_html=True)
+st.markdown('<button class="custom-button">버튼</button>', unsafe_allow_html=True)
+  if st.button("반납 방법 알아보기",help="color: #dbead5"):
     img = Image.open('안내 사진/음료 투입.png')
     img = img.resize((256, 256))
     st.image(img)
