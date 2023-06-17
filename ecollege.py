@@ -68,13 +68,11 @@ def extract_text(file):
 
 ## 쓰레기 인식 함수 ##
 def classification(image):
-  url = 'https://drive.google.com/uc?id=1zf2qMlHKqp1kKVYRgyty8zqHMnGPNH0'
-  response = requests.get(url)
-  model_bytes = BytesIO(response.content)
-  model = load_model(model_bytes)
+  file_path = 'model_2'
+  model = load_model(file_path)
   
   # 예측
-  f = '/content/drive/MyDrive/2023 2차 인사이콘/test_can.jpg'
+  f = image
   image_w = 64
   image_h = 64
 
