@@ -163,7 +163,7 @@ if option1 == '영수증 인식하러 가기':
     with tempfile.NamedTemporaryFile(delete=False, suffix=os.path.splitext(upload_file.name)[1]) as temp_file:
       img.save(temp_file.name,)
       extract_text(temp_file.name)
-      user_point += point
+
 
 ## 재활용품 배출 페이지 ##  
 if option1 == '재활용품 분리배출 하러 가기':
