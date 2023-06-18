@@ -218,5 +218,38 @@ if option1 == '재활용품 분리배출 하러 가기':
     
     
 ## 사용 가능 지점 페이지 ##
-if option1 == '사용 가능한 지점 보러가기':
+if option2 == '사용 가능한 지점 보러가기':
   st.subheader("\U0001F6CD사용 가능한 지점 보러가기")
+  img1 = Image.open('안내 사진/그라찌에.png')
+  img2 = Image.open('안내 사진/공차.png')
+  img3 = Image.open('안내 사진/본솔.png')
+  img4 = Image.open('안내 사진/아이엔지.jpg')
+  img5 = Image.open('안내 사진/커브.jpg')
+  img6 = Image.open('안내 사진/컴포즈.png')
+  
+  col1, col2, col3 = st.columns(3)
+  with col1:
+      st.image(img1, caption='그라찌에')
+      st.image(img4, caption='아이엔지')
+  with col2:
+      st.image(img2, caption='공차')
+      st.image(img5, caption='커피브레이크')
+  with col3:
+      st.image(img3, caption='본솔')
+      st.image(img6, caption='컴포즈')
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
