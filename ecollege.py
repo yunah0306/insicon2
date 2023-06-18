@@ -50,7 +50,7 @@ def extract_text(file):
   # 정규표현식 패턴에 매칭되는 모든 한글 단어를 추출하여 리스트에 저장
   hangul_words = hangul_pattern.findall(response.text)
   
-  word_choice = ['다회용기','개인컵','다회용컵','컵할인']
+  word_choice = ['다회용기','개인컵','다회용컵','컵할인','텀블러']
 
   count = 0
   used = []
