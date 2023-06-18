@@ -122,10 +122,10 @@ st.header("Ecollege")
 
 option1 = st.sidebar.selectbox(
   '실천하기',
-('서비스를 선택해주세요','영수증 인식하러 가기', '재활용품 분리배출 하러 가기'))
+('메뉴를 선택해주세요','영수증 인식하러 가기', '재활용품 분리배출 하러 가기'))
 
 option2 = st.sidebar.selectbox(
-  '포인트 사용하기',
+  '모은 포인트 사용하러 가기 GoGo',
 ('메뉴를 선택해주세요','사용 가능한 지점 보러가기', '자전거 타러가기'))
   
 
@@ -215,3 +215,8 @@ if option1 == '재활용품 분리배출 하러 가기':
       img.save(temp_file.name,)
       classification(temp_file.name)
     text_placeholder.empty()
+    
+    
+## 사용 가능 지점 페이지 ##
+if option1 == '사용 가능한 지점 보러가기':
+  st.subheader("\U0001F6CD사용 가능한 지점 보러가기")
