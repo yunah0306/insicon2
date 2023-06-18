@@ -120,7 +120,6 @@ if 'point' not in st.session_state:
 ## 메인 페이지 ##
 st.title('🍀에코리지')
 user_point = 0
-st.header(f'{user_name}님의 적립포인트는 {user_point}p입니다!')
 user_name = st.text_input("이름을 입력하세요")
 if user_name:
   st.sidebar.text(f'{user_name}님, Ecollege에 오신걸 환영합니다!')
