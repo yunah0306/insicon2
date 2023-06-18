@@ -157,7 +157,7 @@ if option1 == '영수증 인식하러 가기':
   if upload_file is not None:
     # 이미지 열기
     img = Image.open(upload_file)
-    img = img.resize((256,512))
+    #img = img.resize((256,512))
     st.image(img)
     # OCR
     with tempfile.NamedTemporaryFile(delete=False, suffix=os.path.splitext(upload_file.name)[1]) as temp_file:
