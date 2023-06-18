@@ -122,7 +122,7 @@ campus = st.radio('재학중인 학교를 선택하세요', ['서강대학교', 
 
 
 
-st.sidebar.text(f'{}님, Ecollege에 오신걸 환영합니다!'.format(user_name))
+st.sidebar.text(f'{user_name}님, Ecollege에 오신걸 환영합니다!')
 option1 = st.sidebar.selectbox(
   '🌳실천하기',
 ('메뉴를 선택해주세요','영수증 인식하러 가기', '재활용품 분리배출 하러 가기'))
@@ -225,7 +225,7 @@ if option1 == '재활용품 분리배출 하러 가기':
 ## 사용 가능 지점 페이지 ##
 if option2 == '사용 가능한 매장 보러가기':
   option1 = '메뉴를 선택해주세요'
-  st.subheader(f"{}의 아래 매장에서 포인트를 사용할 수 있어요".format(campus))
+  st.subheader(f"{campus}의 아래 매장에서 포인트를 사용할 수 있어요")
   st.write("")
   img1 = Image.open('안내 사진/그라찌에.png')
   img2 = Image.open('안내 사진/공차.png')
