@@ -97,13 +97,13 @@ def classification(image):
   price_dict = {'캔':30, '플라스틱': 20, '유리': 20}
   if predicted_label == '확인불가':
     st.markdown("""
-                <div style="background-color: #dbead5; color: #000000; padding: 10px;">
+                <div style="background-color: #dbead5; color: #000000; padding: 10px;text-align: center;">
                     확인이 불가합니다. 올바르게 배출해주세요. 
                 </div>
                 """.format(st.session_state['point']), unsafe_allow_html=True) 
   else:
     st.markdown("""
-            <div style="background-color: #dbead5; color: #000000; padding: 10px;">
+            <div style="background-color: #dbead5; color: #000000; padding: 10px;text-align: center;">
                 {}을(를) 배출하셨습니다. {}포인트가 지급되었습니다!
             </div>
             """.format(predicted_label,price_dict[predicted_label]), unsafe_allow_html=True)
@@ -140,7 +140,7 @@ if option1 == '영수증 인식하러 가기':
   option2 = '메뉴를 선택해주세요'
   st.subheader("🧾영수증 인식")
   st.markdown("""
-        <div style="background-color: #dbead5; color: #000000; padding: 10px;">
+        <div style="background-color: #dbead5; color: #000000; padding: 10px; text-align: center;">
         종이 영수증 대신 전자 영수증을 발급하면 환경 보호에 더 도움이 돼요!
         </div>
         """.format(st.session_state['point']), unsafe_allow_html=True)
@@ -174,7 +174,7 @@ if option1 == '재활용품 분리배출 하러 가기':
     img = img.resize((256, 256))
     st.image(img)
     st.markdown("""
-                <div style="background-color: #dbead5; color: #000000; padding: 10px;">
+                <div style="background-color: #dbead5; color: #000000; padding: 10px;text-align: center;">
                     음료는 아래에 있는 음료 투입구에 버려주세요 
                 </div>
                 """.format(st.session_state['point']), unsafe_allow_html=True) 
@@ -183,7 +183,7 @@ if option1 == '재활용품 분리배출 하러 가기':
     img = img.resize((256, 256))
     st.image(img)
     st.markdown("""
-                <div style="background-color: #dbead5; color: #000000; padding: 10px;">
+                <div style="background-color: #dbead5; color: #000000; padding: 10px;text-align: center;">
                     페트병은 라벨을 제거하고 최대한 압축하여 배출구 위에 올려주세요 
                 </div>
                 """.format(st.session_state['point']), unsafe_allow_html=True) 
@@ -192,7 +192,7 @@ if option1 == '재활용품 분리배출 하러 가기':
     img = img.resize((256, 256))
     st.image(img)
     st.markdown("""
-                <div style="background-color: #dbead5; color: #000000; padding: 10px;">
+                <div style="background-color: #dbead5; color: #000000; padding: 10px;text-align: center;">
                     캔은 찌그러뜨려서 올려주세요 
                 </div>
                 """.format(st.session_state['point']), unsafe_allow_html=True) 
@@ -201,7 +201,7 @@ if option1 == '재활용품 분리배출 하러 가기':
     img = img.resize((256, 256))
     st.image(img)
     st.markdown("""
-                <div style="background-color: #dbead5; color: #000000; padding: 10px;">
+                <div style="background-color: #dbead5; color: #000000; padding: 10px;text-align: center;">
                     유리병은 라벨과 뚜껑의 재질이 다를 경우 분리해서 배출해주세요 
                 </div>
                 """.format(st.session_state['point']), unsafe_allow_html=True) 
@@ -262,7 +262,19 @@ if option2 == '자전거 타러가기':
   st.subheader("🚲아래에서 이용권을 구매해주세요")
   st.markdown("""
               <div style="background-color: #dbead5; color: #000000; padding: 20px 5px; font-size: 40px; text-align: center;">
-                  30분 이용권
+                  30분 이용권: 500원
+              </div>
+              """.format(st.session_state['point']), unsafe_allow_html=True)
+  st.write("")
+  st.markdown("""
+              <div style="background-color: #dbead5; color: #000000; padding: 20px 5px; font-size: 40px; text-align: center;">
+                  1시간 이용권: 1000원
+              </div>
+              """.format(st.session_state['point']), unsafe_allow_html=True)
+  st.write("")
+  st.markdown("""
+              <div style="background-color: #dbead5; color: #000000; padding: 20px 5px; font-size: 40px; text-align: center;">
+                  2시간 이용권: 2000원
               </div>
               """.format(st.session_state['point']), unsafe_allow_html=True)
   
