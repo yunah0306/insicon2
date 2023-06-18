@@ -113,54 +113,27 @@ if 'point' not in st.session_state:
   st.session_state['point'] = 0
   
 ### 앱 화면 ###  
+
 ## 메인 페이지 ##
 st.title('에코리지')
 st.header("Ecollege")
 
 
-img1 = Image.open("안내 사진/영수증픽토그램.jpg")
-img1 = img1.resize((256, 256))
-img2 = Image.open("안내 사진/재활용픽토그램.png")
-img2 = img2.resize((256, 256))
-
 col1, col2 = st.columns([1, 1])
 with col1:
-    st.image(img1, use_column_width=True)
-    checkbox1 = st.checkbox('영수증 인식하러 가기')
-with col2:
-    st.image(img2, use_column_width=True)
-    checkbox2 = st.checkbox('재활용품 분리배출 하러 가기')
-    
-if checkbox1:
-  checkbox2 = False
-  st.write('영수증 인식하러 가볼까요?')
-if checkbox2:
-  checkbox1 = False
-  st.write('재활용품 분리배출하러 가볼까요?')
-  
-           
-           
-
-
-
-
-
-
-
-
-
-
-option = st.sidebar.selectbox(
+    #st.image(img1, use_column_width=True)
+    option1 = st.selectbox(
       '실천하기',
     ('서비스를 선택해주세요','영수증 인식하러 가기', '재활용품 분리배출 하러 가기'))
-
-option2 = st.sidebar.selectbox(
+with col2:
+    #st.image(img2, use_column_width=True)
+    option2 = st.selectbox(
       '포인트 사용하기',
     ('메뉴를 선택해주세요','사용 가능한 지점 보러가기', '자전거 타러가기'))
 
 
 ## 영수증 인식 페이지 ##
-if option == '영수증 인식하러 가기':
+if option1 == '영수증 인식하러 가기':
   st.subheader("🌱영수증 인식")
   st.markdown("""
         <div style="background-color: #dbead5; color: #000000; padding: 10px;">
@@ -168,11 +141,11 @@ if option == '영수증 인식하러 가기':
         </div>
         """.format(st.session_state['point']), unsafe_allow_html=True)
   st.write("")
-  option2 = st.selectbox(
+  receipt_type = st.selectbox(
         '영수증 종류를 선택해주세요.',
         ('전자영수증', '실물영수증'))
   
-  if option2 == '전자영수증':
+  if receipt_type == '전자영수증':
     upload_file = st.file_uploader('전자영수증을 업로드해주세요', type=['jpg', 'png', 'jpeg'])
   else:
     upload_file = st.file_uploader('실물영수증을 촬영해주세요 ', type=['jpg', 'png', 'jpeg'])
@@ -188,7 +161,7 @@ if option == '영수증 인식하러 가기':
       extract_text(temp_file.name)
 
 ## 재활용품 배출 페이지 ##  
-if option == '재활용품 분리배출 하러 가기':
+if option1 == '재활용품 분리배출 하러 가기':
   st.subheader("🌳재활용품 분리배출")
   if st.button("반납 방법 알아보기"):
     img = Image.open('안내 사진/음료 투입.png')
