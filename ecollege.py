@@ -137,6 +137,8 @@ option2 = st.sidebar.selectbox(
 ## 영수증 인식 페이지 ##
 if option1 == '영수증 인식하러 가기':
   option2 = '메뉴를 선택해주세요'
+  user_name.empty()
+  campus.empty()
   st.subheader("🧾영수증 인식")
   st.markdown("""
         <div style="background-color: #dbead5; color: #000000; padding: 10px;">
