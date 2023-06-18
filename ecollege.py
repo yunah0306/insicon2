@@ -121,15 +121,22 @@ st.header("Ecollege")
 
 col1, col2 = st.columns([1, 1])
 with col1:
-    #st.image(img1, use_column_width=True)
+    st.image(img1, use_column_width=True)
     option1 = st.selectbox(
       '실천하기',
     ('서비스를 선택해주세요','영수증 인식하러 가기', '재활용품 분리배출 하러 가기'))
 with col2:
-    #st.image(img2, use_column_width=True)
+    st.image(img2, use_column_width=True)
     option2 = st.selectbox(
       '포인트 사용하기',
     ('메뉴를 선택해주세요','사용 가능한 지점 보러가기', '자전거 타러가기'))
+    
+if option1:
+  option2 = False
+  
+if option2:
+  option1 = False
+  
 
 
 ## 영수증 인식 페이지 ##
