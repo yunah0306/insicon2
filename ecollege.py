@@ -66,6 +66,7 @@ def extract_text(file):
                 {}을(를) 이용하셨군요! {}포인트가 지급되었습니다!
             </div>
             """.format(sentence,point), unsafe_allow_html=True)
+
   
   
 
@@ -120,7 +121,7 @@ user_name = st.text_input("이름을 입력하세요")
 if user_name:
   st.sidebar.text(f'{user_name}님, Ecollege에 오신걸 환영합니다!')
 campus = st.radio('재학중인 학교를 선택하세요', ['서강대학교', '연세대학교' ,'이화여자대학교', '홍익대학교'])
-
+user_point = 0
 
 
 
@@ -137,8 +138,6 @@ option2 = st.sidebar.selectbox(
 ## 영수증 인식 페이지 ##
 if option1 == '영수증 인식하러 가기':
   option2 = '메뉴를 선택해주세요'
-  user_name.empty()
-  campus.empty()
   st.subheader("🧾영수증 인식")
   st.markdown("""
         <div style="background-color: #dbead5; color: #000000; padding: 10px;">
@@ -164,6 +163,7 @@ if option1 == '영수증 인식하러 가기':
     with tempfile.NamedTemporaryFile(delete=False, suffix=os.path.splitext(upload_file.name)[1]) as temp_file:
       img.save(temp_file.name,)
       extract_text(temp_file.name)
+      user_point += point
 
 ## 재활용품 배출 페이지 ##  
 if option1 == '재활용품 분리배출 하러 가기':
