@@ -122,7 +122,7 @@ campus = st.radio('재학중인 학교를 선택하세요', ['서강대학교', 
 
 
 
-st.sidebar.text(f'{}님, Ecollege에 오신걸 환영합니다!'.format())
+st.sidebar.text(f'{}님, Ecollege에 오신걸 환영합니다!'.format(user_name))
 option1 = st.sidebar.selectbox(
   '🌳실천하기',
 ('메뉴를 선택해주세요','영수증 인식하러 가기', '재활용품 분리배출 하러 가기'))
