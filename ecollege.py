@@ -278,44 +278,44 @@ if option2 == '사용 가능한 매장 보러가기':
       st.image(img3, caption='부를샘')
       st.image(img4, caption='하얀샘')
         
- if campus == '이화여자대학교':
-  st.subheader(f"{campus}에서 사용 가능한 매장입니다")
-  st.write("")
-  img1 = Image.open('안내 사진/닥터로빈.png')
-  img2 = Image.open('안내 사진/샐러디.png')
-  img3 = Image.open('안내 사진/아이엔지.png')
+  if campus == '이화여자대학교':
+    st.subheader(f"{campus}에서 사용 가능한 매장입니다")
+    st.write("")
+    img1 = Image.open('안내 사진/닥터로빈.png')
+    img2 = Image.open('안내 사진/샐러디.png')
+    img3 = Image.open('안내 사진/아이엔지.png')
 
-  img1 = img1.resize((128,128))
-  img2 = img2.resize((128,128))
-  img3 = img3.resize((128,128))
+    img1 = img1.resize((128,128))
+    img2 = img2.resize((128,128))
+    img3 = img3.resize((128,128))
 
-  col1, col2, col3 = st.columns(3)
-  with col1:
-    st.image(img1, caption='닥터로빈')
-  with col2:
-    st.image(img2, caption='샐러디')
-  with col3:
-    st.image(img3, caption='아이엔지')
+    col1, col2, col3 = st.columns(3)
+    with col1:
+      st.image(img1, caption='닥터로빈')
+    with col2:
+      st.image(img2, caption='샐러디')
+    with col3:
+      st.image(img3, caption='아이엔지')
       
       
- if campus == '홍익대학교':
-  st.subheader(f"{campus}에서 사용 가능한 매장입니다")
-  st.write("")
-  img1 = Image.open('안내 사진/그라찌에.png')
-  img2 = Image.open('안내 사진/카페나무.png')
-  img3 = Image.open('안내 사진/카페드림.png')
+  if campus == '홍익대학교':
+    st.subheader(f"{campus}에서 사용 가능한 매장입니다")
+    st.write("")
+    img1 = Image.open('안내 사진/그라찌에.png')
+    img2 = Image.open('안내 사진/카페나무.png')
+    img3 = Image.open('안내 사진/카페드림.png')
 
-  img1 = img1.resize((128,128))
-  img2 = img2.resize((128,128))
-  img3 = img3.resize((128,128))
+    img1 = img1.resize((128,128))
+    img2 = img2.resize((128,128))
+    img3 = img3.resize((128,128))
 
-  col1, col2, col3 = st.columns(3)
-  with col1:
-    st.image(img1, caption='그라찌에')
-  with col2:
-    st.image(img2, caption='카페나무')
-  with col2:
-    st.image(img3, caption='')
+    col1, col2, col3 = st.columns(3)
+    with col1:
+      st.image(img1, caption='그라찌에')
+    with col2:
+      st.image(img2, caption='카페나무')
+    with col2:
+      st.image(img3, caption='')
     
     
     
