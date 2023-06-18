@@ -121,18 +121,18 @@ st.header("Ecollege")
 
 
 option1 = st.sidebar.selectbox(
-  '실천하기',
+  '🌳실천하기',
 ('메뉴를 선택해주세요','영수증 인식하러 가기', '재활용품 분리배출 하러 가기'))
 
 option2 = st.sidebar.selectbox(
-  '모은 포인트 사용하러 가기 GoGo',
+  '💰모은 포인트 사용하러 가기 GoGo',
 ('메뉴를 선택해주세요','사용 가능한 지점 보러가기', '자전거 타러가기'))
   
 
 
 ## 영수증 인식 페이지 ##
 if option1 == '영수증 인식하러 가기':
-  st.subheader("🌱영수증 인식")
+  st.subheader("🧾영수증 인식")
   st.markdown("""
         <div style="background-color: #dbead5; color: #000000; padding: 10px;">
         종이 영수증 대신 전자 영수증을 발급하면 환경 보호에 더 도움이 돼요!
@@ -160,7 +160,7 @@ if option1 == '영수증 인식하러 가기':
 
 ## 재활용품 배출 페이지 ##  
 if option1 == '재활용품 분리배출 하러 가기':
-  st.subheader("🌳재활용품 분리배출")
+  st.subheader("♻️재활용품 분리배출")
   if st.button("반납 방법 알아보기"):
     img = Image.open('안내 사진/음료 투입.png')
     img = img.resize((256, 256))
@@ -219,13 +219,20 @@ if option1 == '재활용품 분리배출 하러 가기':
     
 ## 사용 가능 지점 페이지 ##
 if option2 == '사용 가능한 지점 보러가기':
-  st.subheader("\U0001F6CD사용 가능한 지점 보러가기")
+  st.subheader("\U0001F6CD아래 매장에서 포인트를 이용할 수 있어요")
   img1 = Image.open('안내 사진/그라찌에.png')
   img2 = Image.open('안내 사진/공차.png')
   img3 = Image.open('안내 사진/본솔.png')
   img4 = Image.open('안내 사진/아이엔지.jpg')
   img5 = Image.open('안내 사진/커브.jpg')
   img6 = Image.open('안내 사진/컴포즈.png')
+  
+  img1 = img1.resize((128,128))
+  img2 = img2.resize((128,128))
+  img3 = img3.resize((128,128))
+  img4 = img4.resize((128,128))
+  img5 = img5.resize((128,128))
+  img6 = img6.resize((128,128))
   
   col1, col2, col3 = st.columns(3)
   with col1:
