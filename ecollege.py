@@ -20,7 +20,7 @@ import json
 from tensorflow.keras.models import load_model
 
 ## OCR 인식 함수 ##
-def extract_text(file):
+def extract_text(file,user_point):
   api_url = 'https://8cbdvua55p.apigw.ntruss.com/custom/v1/22878/18b029032c74f9dc3223fcfe629227edf8e8880be05ecf50148ea52dae003f79/general'
   secret_key = 'R1hjd3JEam9pT3ZRTmRNRkxPTG9MVWhqanpxQmRoeHk='
 
@@ -61,12 +61,13 @@ def extract_text(file):
             used.append(target_word)
   sentence = ', '.join(used)
   point = 10 * count
+  user_point += point
   st.markdown("""
             <div style="background-color: #dbead5; color: #000000; padding: 10px;">
                 {}을(를) 이용하셨군요! {}포인트가 지급되었습니다!
             </div>
             """.format(sentence,point), unsafe_allow_html=True)
-  return point
+  return user_point
 
   
   
@@ -163,8 +164,7 @@ if option1 == '영수증 인식하러 가기':
     # OCR
     with tempfile.NamedTemporaryFile(delete=False, suffix=os.path.splitext(upload_file.name)[1]) as temp_file:
       img.save(temp_file.name,)
-      extract_text(temp_file.name)
-      user_point += point
+      extract_text(temp_file.name,user_point)
 
 ## 재활용품 배출 페이지 ##  
 if option1 == '재활용품 분리배출 하러 가기':
