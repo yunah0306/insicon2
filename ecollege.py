@@ -263,7 +263,7 @@ if option2 == '사용 가능한 매장 보러가기':
     img1 = Image.open('안내 사진/고를샘.png')
     img2 = Image.open('안내 사진/맛나샘.png')
     img3 = Image.open('안내 사진/부를샘.png')
-    img4 = Image.open('안내 사진/하얀샘.jpg')
+    img4 = Image.open('안내 사진/하얀샘.png')
 
     img1 = img1.resize((128,128))
     img2 = img2.resize((128,128))
