@@ -261,8 +261,8 @@ if option2 == '사용 가능한 매장 보러가기':
 if option2 == '자전거 타러가기':
   st.subheader("🚲아래에서 이용권을 구매해주세요")
   st.markdown("""
-              <div style="background-color: #dbead5; color: #000000; padding: 20px 5px; font-size: 16px;">
-                  30분 이용권
+              <div style="background-color: #dbead5; color: #000000; padding: 20px 5px; font-size: 40px;">
+                                              30분 이용권
               </div>
               """.format(st.session_state['point']), unsafe_allow_html=True)
   
