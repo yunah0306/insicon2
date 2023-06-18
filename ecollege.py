@@ -254,16 +254,17 @@ if option2 == '사용 가능한 매장 보러가기':
   with col3:
       st.image(img3, caption='본솔')
       st.image(img6, caption='컴포즈')
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+    
+    
+    
+    
+if option2 == '자전거 타러가기':
+  st.subheader("🚲아래에서 이용권을 구매해주세요")
+    st.markdown("""
+                <div style="background-color: #dbead5; color: #000000; padding: 20px 5px; font-size: 16px;">
+                    30분 이용권
+                </div>
+                """.format(st.session_state['point']), unsafe_allow_html=True)
   
   
   
