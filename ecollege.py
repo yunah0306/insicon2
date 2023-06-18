@@ -62,7 +62,7 @@ def extract_text(file):
   sentence = ', '.join(used)
   point = 10 * count
   st.markdown("""
-            <div style="background-color: #dbead5; color: #000000; padding: 10px;">
+            <div style="background-color: #dbead5; color: #000000; padding: 10px; text-align: center;">
                 {}을(를) 이용하셨군요! {}포인트가 지급되었습니다!
             </div>
             """.format(sentence,point), unsafe_allow_html=True)
