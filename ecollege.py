@@ -118,8 +118,12 @@ if 'point' not in st.session_state:
 st.title('에코리지')
 st.header("Ecollege")
 
-
+img1 = Image.open("안내 사진/영수증픽토그램.jpg")
+img1 = img1.resize((256, 256))
+img2 = Image.open("안내 사진/재활용픽토그램.png")
+img2 = img2.resize((256, 256))
 col1, col2 = st.columns([1, 1])
+
 with col1:
     st.image(img1, use_column_width=True)
     option1 = st.selectbox(
