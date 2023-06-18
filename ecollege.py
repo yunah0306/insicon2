@@ -314,8 +314,8 @@ if option2 == '사용 가능한 매장 보러가기':
       st.image(img1, caption='그라찌에')
     with col2:
       st.image(img2, caption='카페나무')
-    with col2:
-      st.image(img3, caption='')
+    with col3:
+      st.image(img3, caption='카페드림')
     
     
     
