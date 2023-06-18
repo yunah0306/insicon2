@@ -130,7 +130,7 @@ option1 = st.sidebar.selectbox(
 
 option2 = st.sidebar.selectbox(
   '💰모은 포인트 사용하러 가기 GoGo',
-('메뉴를 선택해주세요','사용 가능한 지점 보러가기', '자전거 타러가기'))
+('메뉴를 선택해주세요','사용 가능한 매장 보러가기', '자전거 타러가기'))
 
 
 
@@ -226,7 +226,7 @@ if option1 == '재활용품 분리배출 하러 가기':
 ## 사용 가능 지점 페이지 ##
 if option2 == '사용 가능한 매장 보러가기':
   option1 = '메뉴를 선택해주세요'
-  st.subheader("아래 매장에서 포인트를 사용할 수 있어요")
+  st.subheader(f"{campus}에서 사용 가능한 매장입니다")
   st.write("")
   img1 = Image.open('안내 사진/그라찌에.png')
   img2 = Image.open('안내 사진/공차.png')
