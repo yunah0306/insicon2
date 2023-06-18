@@ -128,16 +128,11 @@ option2 = st.sidebar.selectbox(
   '💰모은 포인트 사용하러 가기 GoGo',
 ('메뉴를 선택해주세요','사용 가능한 지점 보러가기', '자전거 타러가기'))
 
-if option1 :
-    option2 = False
-
-if option2 :
-    option1 = Fasle
-  
 
 
 ## 영수증 인식 페이지 ##
 if option1 == '영수증 인식하러 가기':
+  option2 = '메뉴를 선택해주세요'
   st.subheader("🧾영수증 인식")
   st.markdown("""
         <div style="background-color: #dbead5; color: #000000; padding: 10px;">
@@ -166,6 +161,7 @@ if option1 == '영수증 인식하러 가기':
 
 ## 재활용품 배출 페이지 ##  
 if option1 == '재활용품 분리배출 하러 가기':
+  option2 = '메뉴를 선택해주세요'
   st.subheader("♻️재활용품 분리배출")
   if st.button("반납 방법 알아보기"):
     img = Image.open('안내 사진/음료 투입.png')
@@ -225,6 +221,7 @@ if option1 == '재활용품 분리배출 하러 가기':
     
 ## 사용 가능 지점 페이지 ##
 if option2 == '사용 가능한 지점 보러가기':
+  option1 = '메뉴를 선택해주세요'
   st.subheader("아래 매장에서 포인트를 이용할 수 있어요")
   img1 = Image.open('안내 사진/그라찌에.png')
   img2 = Image.open('안내 사진/공차.png')
