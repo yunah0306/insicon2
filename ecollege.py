@@ -228,32 +228,94 @@ if option1 == '재활용품 분리배출 하러 가기':
 ## 사용 가능 지점 페이지 ##
 if option2 == '사용 가능한 매장 보러가기':
   option1 = '메뉴를 선택해주세요'
-  st.subheader(f"{campus}에서 사용 가능한 매장입니다")
-  st.write("")
-  img1 = Image.open('안내 사진/그라찌에.png')
-  img2 = Image.open('안내 사진/공차.png')
-  img3 = Image.open('안내 사진/본솔.png')
-  img4 = Image.open('안내 사진/아이엔지.jpg')
-  img5 = Image.open('안내 사진/커브.jpg')
-  img6 = Image.open('안내 사진/컴포즈.png')
-  
-  img1 = img1.resize((128,128))
-  img2 = img2.resize((128,128))
-  img3 = img3.resize((128,128))
-  img4 = img4.resize((128,128))
-  img5 = img5.resize((128,128))
-  img6 = img6.resize((128,128))
-  
-  col1, col2, col3 = st.columns(3)
-  with col1:
+  if campus == '서강대학교':
+    st.subheader(f"{campus}에서 사용 가능한 매장입니다")
+    st.write("")
+    img1 = Image.open('안내 사진/그라찌에.png')
+    img2 = Image.open('안내 사진/공차.png')
+    img3 = Image.open('안내 사진/본솔.png')
+    img4 = Image.open('안내 사진/아이엔지.jpg')
+    img5 = Image.open('안내 사진/커브.jpg')
+    img6 = Image.open('안내 사진/컴포즈.png')
+
+    img1 = img1.resize((128,128))
+    img2 = img2.resize((128,128))
+    img3 = img3.resize((128,128))
+    img4 = img4.resize((128,128))
+    img5 = img5.resize((128,128))
+    img6 = img6.resize((128,128))
+
+    col1, col2, col3 = st.columns(3)
+    with col1:
+        st.image(img1, caption='그라찌에')
+        st.image(img4, caption='아이엔지')
+    with col2:
+        st.image(img2, caption='공차')
+        st.image(img5, caption='커피브레이크')
+    with col3:
+        st.image(img3, caption='본솔')
+        st.image(img6, caption='컴포즈')
+      
+      
+  if campus == '연세대학교':
+    st.subheader(f"{campus}에서 사용 가능한 매장입니다")
+    st.write("")
+    img1 = Image.open('안내 사진/고를샘.png')
+    img2 = Image.open('안내 사진/맛나샘.png')
+    img3 = Image.open('안내 사진/부를샘.png')
+    img4 = Image.open('안내 사진/하얀샘.jpg')
+
+    img1 = img1.resize((128,128))
+    img2 = img2.resize((128,128))
+    img3 = img3.resize((128,128))
+    img4 = img4.resize((128,128))
+
+    col1, col2 = st.columns(2)
+    with col1:
+      st.image(img1, caption='고를샘')
+      st.image(img2, caption='맛나샘')
+    with col2:
+      st.image(img3, caption='부를샘')
+      st.image(img4, caption='하얀샘')
+        
+   if campus == '이화여자대학교':
+    st.subheader(f"{campus}에서 사용 가능한 매장입니다")
+    st.write("")
+    img1 = Image.open('안내 사진/닥터로빈.png')
+    img2 = Image.open('안내 사진/샐러디.png')
+    img3 = Image.open('안내 사진/아이엔지.png')
+
+    img1 = img1.resize((128,128))
+    img2 = img2.resize((128,128))
+    img3 = img3.resize((128,128))
+
+    col1, col2, col3 = st.columns(3)
+    with col1:
+      st.image(img1, caption='닥터로빈')
+    with col2:
+      st.image(img2, caption='샐러디')
+    with col3:
+      st.image(img3, caption='아이엔지')
+      
+      
+   if campus == '홍익대학교':
+    st.subheader(f"{campus}에서 사용 가능한 매장입니다")
+    st.write("")
+    img1 = Image.open('안내 사진/그라찌에.png')
+    img2 = Image.open('안내 사진/카페나무.png')
+    img3 = Image.open('안내 사진/카페드림.png')
+
+    img1 = img1.resize((128,128))
+    img2 = img2.resize((128,128))
+    img3 = img3.resize((128,128))
+
+    col1, col2, col3 = st.columns(3)
+    with col1:
       st.image(img1, caption='그라찌에')
-      st.image(img4, caption='아이엔지')
-  with col2:
-      st.image(img2, caption='공차')
-      st.image(img5, caption='커피브레이크')
-  with col3:
-      st.image(img3, caption='본솔')
-      st.image(img6, caption='컴포즈')
+    with col2:
+      st.image(img2, caption='카페나무')
+    with col2:
+      st.image(img3, caption='')
     
     
     
