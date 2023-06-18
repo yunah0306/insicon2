@@ -127,6 +127,12 @@ option1 = st.sidebar.selectbox(
 option2 = st.sidebar.selectbox(
   '💰모은 포인트 사용하러 가기 GoGo',
 ('메뉴를 선택해주세요','사용 가능한 지점 보러가기', '자전거 타러가기'))
+
+if option1 != '메뉴를 선택해주세요':
+    option2 = '메뉴를 선택해주세요'
+
+if option2 != '메뉴를 선택해주세요':
+    option1 = '메뉴를 선택해주세요'
   
 
 
