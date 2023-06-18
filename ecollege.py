@@ -121,6 +121,7 @@ user_name = st.text_input("이름을 입력하세요")
 if user_name:
   st.sidebar.text(f'{user_name}님, Ecollege에 오신걸 환영합니다!')
 campus = st.radio('재학중인 학교를 선택하세요', ['서강대학교', '연세대학교' ,'이화여자대학교', '홍익대학교'])
+user_point = 0
 
 
 
@@ -162,6 +163,7 @@ if option1 == '영수증 인식하러 가기':
     with tempfile.NamedTemporaryFile(delete=False, suffix=os.path.splitext(upload_file.name)[1]) as temp_file:
       img.save(temp_file.name,)
       extract_text(temp_file.name)
+      user_point += point
 
 ## 재활용품 배출 페이지 ##  
 if option1 == '재활용품 분리배출 하러 가기':
@@ -252,7 +254,6 @@ if option2 == '사용 가능한 매장 보러가기':
   with col3:
       st.image(img3, caption='본솔')
       st.image(img6, caption='컴포즈')
-  
   
   
   
