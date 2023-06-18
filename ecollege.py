@@ -219,7 +219,7 @@ if option1 == '재활용품 분리배출 하러 가기':
     
 ## 사용 가능 지점 페이지 ##
 if option2 == '사용 가능한 지점 보러가기':
-  st.subheader("\U0001F6CD아래 매장에서 포인트를 이용할 수 있어요")
+  st.subheader("아래 매장에서 포인트를 이용할 수 있어요")
   img1 = Image.open('안내 사진/그라찌에.png')
   img2 = Image.open('안내 사진/공차.png')
   img3 = Image.open('안내 사진/본솔.png')
