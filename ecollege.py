@@ -283,7 +283,7 @@ if option2 == '사용 가능한 매장 보러가기':
     st.write("")
     img1 = Image.open('안내 사진/닥터로빈.png')
     img2 = Image.open('안내 사진/샐러디.png')
-    img3 = Image.open('안내 사진/아이엔지.png')
+    img3 = Image.open('안내 사진/아이엔지.jpg')
 
     img1 = img1.resize((128,128))
     img2 = img2.resize((128,128))
