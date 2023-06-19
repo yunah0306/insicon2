@@ -112,7 +112,7 @@ option0 = st.sidebar.selectbox('🌱마이페이지',
 if option0 == '회원정보':
   user_name = st.text_input("이름을 입력하세요")
   if user_name:
-    st.sidebar.text(f'{user_name}님, Ecollege에 오신걸 환영합니다!')
+    st.header(f'{user_name}님, Ecollege에 오신걸 환영합니다!')
   campus = st.radio('재학중인 학교를 선택하세요', ['서강대학교', '연세대학교' ,'이화여자대학교', '홍익대학교'])
 if option0 == '내 포인트 확인하러 가기':
   st.write(user_point)
