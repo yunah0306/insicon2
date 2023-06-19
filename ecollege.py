@@ -149,21 +149,21 @@ if option1 == '영수증 인식하러 가기':
   
   if receipt_type == '전자영수증':
     upload_file = st.file_uploader('전자영수증을 업로드해주세요', type=['jpg', 'png', 'jpeg'])
-      if upload_file is not None:
-        # 이미지 열기
-        img = Image.open(upload_file)
-        img = img.resize((256,512))
-        st.image(img)
-        # OCR
-        with tempfile.NamedTemporaryFile(delete=False, suffix=os.path.splitext(upload_file.name)[1]) as temp_file:
-          img.save(temp_file.name,)
-          sentence, count = extract_text(temp_file.name)
-          point = 100 * count
-          st.markdown("""
-                <div style="background-color: #dbead5; color: #000000; padding: 10px; text-align: center;">
-                    {}을(를) 이용하셨군요! {}포인트가 지급되었습니다!
-                </div>
-                """.format(sentence,point), unsafe_allow_html=True)
+    if upload_file is not None:
+      # 이미지 열기
+      img = Image.open(upload_file)
+      img = img.resize((256,512))
+      st.image(img)
+      # OCR
+      with tempfile.NamedTemporaryFile(delete=False, suffix=os.path.splitext(upload_file.name)[1]) as temp_file:
+        img.save(temp_file.name,)
+        sentence, count = extract_text(temp_file.name)
+        point = 100 * count
+        st.markdown("""
+              <div style="background-color: #dbead5; color: #000000; padding: 10px; text-align: center;">
+                  {}을(를) 이용하셨군요! {}포인트가 지급되었습니다!
+              </div>
+              """.format(sentence,point), unsafe_allow_html=True)
 
   else:
     upload_file = st.file_uploader('실물영수증을 촬영해주세요 ', type=['jpg', 'png', 'jpeg'])
