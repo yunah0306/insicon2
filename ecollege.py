@@ -102,20 +102,6 @@ if 'point' not in st.session_state:
 ## 메인 페이지 ##
 st.title('🍀에코리지')
 user_point = 0
-
-
-option0 = st.sidebar.selectbox('🌱마이페이지',
-('메뉴를 선택해주세요','회원정보', '내 포인트 확인하러 가기'))
-
-
-## 마이페이지 ##
-if option0 == '회원정보':
-  user_name = st.text_input("이름을 입력하세요")
-  if user_name:
-    st.text(f'{user_name}님, Ecollege에 오신걸 환영합니다!')
-  campus = st.radio('재학중인 학교를 선택하세요', ['서강대학교', '연세대학교' ,'이화여자대학교', '홍익대학교'])
-if option0 == '내 포인트 확인하러 가기':
-  st.write(user_point)
   
   
 
@@ -379,10 +365,19 @@ if option2 == '자전거 타러가기':
               """.format(st.session_state['point']), unsafe_allow_html=True)
   
   
+## 마이페이지 ##
+my_button = st.sidebar.button('🌱마이페이지')
+if my_button':
+  user_name = st.text_input("이름을 입력하세요")
+  if user_name:
+    st.text(f'{user_name}님, Ecollege에 오신걸 환영합니다!')
+  campus = st.radio('재학중인 학교를 선택하세요', ['서강대학교', '연세대학교' ,'이화여자대학교', '홍익대학교'])
+  check_point = st.button('내 포인트 확인하기')
+  if check_point:
+    st.write(f'{user_name}님의 적립포인트는 {user_point}p입니다')
   
   
-  
-for i in range(10):
+for i in range(8):
   st.sidebar.write("")
 st.sidebar.markdown("""
     <div style="background-color: #dbead5; color: #000000; padding: 10px; text-align: center;">
