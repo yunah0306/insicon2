@@ -136,9 +136,9 @@ if option1 == '영수증 인식하러 가기':
   st.subheader("🧾영수증 인식")
   st.markdown("""
         <div style="background-color: #dbead5; color: #000000; padding: 10px; text-align: center;">
-        종이 영수증 대신 전자 영수증을 발급하면 환경 보호에 더 도움이 돼요!
-        전자 영수증: 100point
-        실물영수증: 80point
+        종이 영수증 대신 전자 영수증을 발급하면 환경 보호에 더 도움이 돼요! <br>
+        전자 영수증: 100point <br>
+        실물영수증: 80point <br>
         하루 적립 가능 최대 포인트는 300point입니다
         </div>
         """.format(st.session_state['point']), unsafe_allow_html=True)
