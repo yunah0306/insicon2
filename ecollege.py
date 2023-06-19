@@ -107,27 +107,12 @@ user_point = 0
 option0 = st.sidebar.selectbox('🌱마이페이지',
 ('메뉴를 선택해주세요','회원정보', '내 포인트 확인하러 가기'))
 
-option1 = st.sidebar.selectbox(
-  '🌳실천하기',
-('메뉴를 선택해주세요','영수증 인식하러 가기', '재활용품 분리배출 하러 가기'))
-
-option2 = st.sidebar.selectbox(
-  '💰모은 포인트 사용하러 가기 GoGo',
-('메뉴를 선택해주세요','사용 가능한 매장 보러가기', '자전거 타러가기'))
-
-for i in range(10):
-  st.sidebar.write("")
-st.sidebar.markdown("""
-    <div style="background-color: #dbead5; color: #000000; padding: 10px; text-align: center;">
-    녹색자매님이 100p 적립했습니다!
-    </div>
-    """.format(st.session_state['point']), unsafe_allow_html=True)
 
 ## 마이페이지 ##
 if option0 == '회원정보':
   user_name = st.text_input("이름을 입력하세요")
   if user_name:
-    st.header(f'{user_name}님, Ecollege에 오신걸 환영합니다!')
+    st.sidebar.text(f'{user_name}님, Ecollege에 오신걸 환영합니다!')
   campus = st.radio('재학중인 학교를 선택하세요', ['서강대학교', '연세대학교' ,'이화여자대학교', '홍익대학교'])
 if option0 == '내 포인트 확인하러 가기':
   st.write(user_point)
@@ -135,6 +120,10 @@ if option0 == '내 포인트 확인하러 가기':
   
 
 ## 영수증 인식 페이지 ##
+option1 = st.sidebar.selectbox(
+  '🌳실천하기',
+('메뉴를 선택해주세요','영수증 인식하러 가기', '재활용품 분리배출 하러 가기'))
+
 if option1 == '영수증 인식하러 가기':
   option2 = '메뉴를 선택해주세요'
   st.subheader("🧾영수증 인식")
@@ -265,6 +254,10 @@ if option1 == '재활용품 분리배출 하러 가기':
     
     
 ## 사용 가능 지점 페이지 ##
+option2 = st.sidebar.selectbox(
+  '💰모은 포인트 사용하러 가기 GoGo',
+('메뉴를 선택해주세요','사용 가능한 매장 보러가기', '자전거 타러가기'))
+
 if option2 == '사용 가능한 매장 보러가기':
   option1 = '메뉴를 선택해주세요'
   if campus == '서강대학교':
@@ -388,4 +381,12 @@ if option2 == '자전거 타러가기':
   
   
   
+  
+for i in range(10):
+  st.sidebar.write("")
+st.sidebar.markdown("""
+    <div style="background-color: #dbead5; color: #000000; padding: 10px; text-align: center;">
+    녹색자매님이 100p 적립했습니다!
+    </div>
+    """.format(st.session_state['point']), unsafe_allow_html=True)
   
