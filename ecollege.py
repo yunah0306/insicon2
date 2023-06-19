@@ -103,6 +103,11 @@ if 'point' not in st.session_state:
 st.title('🍀에코리지')
 user_point = 0
 
+## 마이페이지 ##
+user_name = st.sidebar.text_input("이름을 입력하세요", key="user_name_input")
+if user_name:
+  st.text(f'🌱{st.session_state.user_name_input}님, Ecollege에 오신걸 환영합니다!')
+campus = st.radio('재학중인 학교를 선택하세요', ['서강대학교', '연세대학교' ,'이화여자대학교', '홍익대학교'])
 
   
   
@@ -367,21 +372,15 @@ if option2 == '자전거 타러가기':
               """.format(st.session_state['point']), unsafe_allow_html=True)
   
  
-  
-## 마이페이지 ##
-option0 = st.sidebar.selectbox('🌱마이페이지',('메뉴를 선택해주세요','회원정보', '이용내역 보러가기'))
-if option0 == '회원정보' :
-  user_name = st.text_input("이름을 입력하세요", key="user_name_input")
-  if user_name:
-    st.text(f'{st.session_state.user_name_input}님, Ecollege에 오신걸 환영합니다!')
-  campus = st.radio('재학중인 학교를 선택하세요', ['서강대학교', '연세대학교' ,'이화여자대학교', '홍익대학교'])
+ 
 
 for i in range(8):
   st.sidebar.write("")
+  
+st.sidebar.subheader(f'현재 적립포인트는 {user_point}p입니다')
 st.sidebar.markdown("""
     <div style="background-color: #dbead5; color: #000000; padding: 10px; text-align: center;">
     녹색자매님이 100p 적립했습니다!
     </div>
     """.format(st.session_state['point']), unsafe_allow_html=True)
-  
-st.subheader(f'현재 적립포인트는 {user_point}p입니다')
+
