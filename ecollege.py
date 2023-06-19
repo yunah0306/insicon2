@@ -60,12 +60,7 @@ def extract_text(file):
             count += 1
             used.append(target_word)
   sentence = ', '.join(used)
-  point = 10 * count
-  st.markdown("""
-            <div style="background-color: #dbead5; color: #000000; padding: 10px; text-align: center;">
-                {}을(를) 이용하셨군요! {}포인트가 지급되었습니다!
-            </div>
-            """.format(sentence,point), unsafe_allow_html=True)
+  return sentence, count
 
   
   
@@ -142,6 +137,9 @@ if option1 == '영수증 인식하러 가기':
   st.markdown("""
         <div style="background-color: #dbead5; color: #000000; padding: 10px; text-align: center;">
         종이 영수증 대신 전자 영수증을 발급하면 환경 보호에 더 도움이 돼요!
+        전자 영수증: 100point
+        실물영수증: 80point
+        하루 적립 가능 최대 포인트는 300point입니다
         </div>
         """.format(st.session_state['point']), unsafe_allow_html=True)
   st.write("")
@@ -151,18 +149,39 @@ if option1 == '영수증 인식하러 가기':
   
   if receipt_type == '전자영수증':
     upload_file = st.file_uploader('전자영수증을 업로드해주세요', type=['jpg', 'png', 'jpeg'])
+      if upload_file is not None:
+        # 이미지 열기
+        img = Image.open(upload_file)
+        img = img.resize((256,512))
+        st.image(img)
+        # OCR
+        with tempfile.NamedTemporaryFile(delete=False, suffix=os.path.splitext(upload_file.name)[1]) as temp_file:
+          img.save(temp_file.name,)
+          sentence, count = extract_text(temp_file.name)
+          point = 100 * count
+          st.markdown("""
+                <div style="background-color: #dbead5; color: #000000; padding: 10px; text-align: center;">
+                    {}을(를) 이용하셨군요! {}포인트가 지급되었습니다!
+                </div>
+                """.format(sentence,point), unsafe_allow_html=True)
+
   else:
     upload_file = st.file_uploader('실물영수증을 촬영해주세요 ', type=['jpg', 'png', 'jpeg'])
-    
-  if upload_file is not None:
-    # 이미지 열기
-    img = Image.open(upload_file)
-    img = img.resize((256,512))
-    st.image(img)
-    # OCR
-    with tempfile.NamedTemporaryFile(delete=False, suffix=os.path.splitext(upload_file.name)[1]) as temp_file:
-      img.save(temp_file.name,)
-      extract_text(temp_file.name)
+    if upload_file is not None:
+        # 이미지 열기
+        img = Image.open(upload_file)
+        img = img.resize((256,512))
+        st.image(img)
+        # OCR
+        with tempfile.NamedTemporaryFile(delete=False, suffix=os.path.splitext(upload_file.name)[1]) as temp_file:
+          img.save(temp_file.name,)
+          sentence, count = extract_text(temp_file.name)
+          point = 80 * count
+          st.markdown("""
+                <div style="background-color: #dbead5; color: #000000; padding: 10px; text-align: center;">
+                    {}을(를) 이용하셨군요! {}포인트가 지급되었습니다!
+                </div>
+                """.format(sentence,point), unsafe_allow_html=True)
 
 
 ## 재활용품 배출 페이지 ##  
@@ -237,6 +256,8 @@ if option2 == '사용 가능한 매장 보러가기':
     img4 = Image.open('안내 사진/아이엔지.jpg')
     img5 = Image.open('안내 사진/커브.jpg')
     img6 = Image.open('안내 사진/컴포즈.png')
+    img7 = Image.open('안내 사진/샐러디.png')
+    img8 = Image.open('안내 사진/한솥.png')
 
     img1 = img1.resize((128,128))
     img2 = img2.resize((128,128))
@@ -244,14 +265,18 @@ if option2 == '사용 가능한 매장 보러가기':
     img4 = img4.resize((128,128))
     img5 = img5.resize((128,128))
     img6 = img6.resize((128,128))
+    img7 = img7.resize((128,128))
+    img8 = img8.resize((128,128))
 
     col1, col2, col3 = st.columns(3)
     with col1:
         st.image(img1, caption='그라찌에')
         st.image(img4, caption='아이엔지')
+        st.image(img7, caption='샐러디')
     with col2:
         st.image(img2, caption='공차')
         st.image(img5, caption='커피브레이크')
+        st.image(img8, caption='')
     with col3:
         st.image(img3, caption='본솔')
         st.image(img6, caption='컴포즈')
