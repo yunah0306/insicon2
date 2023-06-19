@@ -276,7 +276,7 @@ if option2 == '사용 가능한 매장 보러가기':
     with col2:
         st.image(img2, caption='공차')
         st.image(img5, caption='커피브레이크')
-        st.image(img8, caption='')
+        st.image(img8, caption='한솥')
     with col3:
         st.image(img3, caption='본솔')
         st.image(img6, caption='컴포즈')
