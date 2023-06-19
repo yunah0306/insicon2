@@ -151,7 +151,7 @@ if option1 == '영수증 인식하러 가기':
                   {}을(를) 이용하셨군요! {}포인트가 지급되었습니다!
               </div>
               """.format(sentence,point), unsafe_allow_html=True)
-        user_point += point
+        st.session_state["user_point"] += point
 
   else:
     upload_file = st.file_uploader('종이영수증을 촬영해주세요 ', type=['jpg', 'png', 'jpeg'])
@@ -170,7 +170,7 @@ if option1 == '영수증 인식하러 가기':
                     {}을(를) 이용하셨군요! {}포인트가 지급되었습니다!
                 </div>
                 """.format(sentence,point), unsafe_allow_html=True)
-          user_point += point
+          st.session_state["user_point"] += point
 
 
 ## 재활용품 배출 페이지 ##  
@@ -243,7 +243,7 @@ if option1 == '재활용품 분리배출 하러 가기':
                     {}을(를) 배출하셨습니다. {}포인트가 지급되었습니다!
                 </div>
                 """.format(predicted_label,price_dict[predicted_label]), unsafe_allow_html=True)
-        user_point += price_dict[predicted_label]
+        st.session_state["user_point"] += price_dict[predicted_label]
     text_placeholder.empty()
     
     
