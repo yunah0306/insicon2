@@ -101,7 +101,8 @@ if 'point' not in st.session_state:
 
 ## 메인 페이지 ##
 st.title('🍀에코리지')
-user_point = 0
+if 'user_point' not in st.session_state:
+  st.session_state['user_point'] = 0
 
 ## 마이페이지 ##
 user_name = st.sidebar.text_input("이름을 입력하세요", key="user_name_input")
