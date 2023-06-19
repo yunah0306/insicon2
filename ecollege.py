@@ -384,4 +384,4 @@ st.sidebar.markdown("""
     </div>
     """.format(st.session_state['point']), unsafe_allow_html=True)
   
-st.text(f'현재 적립포인트는 {user_point}입니다')
+st.subheader(f'현재 적립포인트는 {user_point}p입니다')
