@@ -115,7 +115,7 @@ option2 = st.sidebar.selectbox(
   '💰모은 포인트 사용하러 가기 GoGo',
 ('메뉴를 선택해주세요','사용 가능한 매장 보러가기', '자전거 타러가기'))
 
-for i in range(15):
+for i in range(10):
   st.sidebar.write("")
 st.sidebar.markdown("""
     <div style="background-color: #dbead5; color: #000000; padding: 10px; text-align: center;">
@@ -127,7 +127,7 @@ st.sidebar.markdown("""
 if option0 == '회원정보':
   user_name = st.text_input("이름을 입력하세요")
   if user_name:
-    st.sidebar.text(f'{user_name}님, Ecollege에 오신걸 환영합니다!')
+    st.sidebar.(f'{user_name}님, Ecollege에 오신걸 환영합니다!')
   campus = st.radio('재학중인 학교를 선택하세요', ['서강대학교', '연세대학교' ,'이화여자대학교', '홍익대학교'])
 if option0 == '내 포인트 확인하러 가기':
   st.write(user_point)
