@@ -106,8 +106,8 @@ user_point = 0
 ## 마이페이지 ##
 user_name = st.sidebar.text_input("이름을 입력하세요", key="user_name_input")
 if user_name:
-  st.text(f'🌱{st.session_state.user_name_input}님, Ecollege에 오신걸 환영합니다!')
-campus = st.radio('재학중인 학교를 선택하세요', ['서강대학교', '연세대학교' ,'이화여자대학교', '홍익대학교'])
+  st.sidebar.text(f'🌱{st.session_state.user_name_input}님, Ecollege에 오신걸 환영합니다!')
+campus = st.sidebar.radio('재학중인 학교를 선택하세요', ['서강대학교', '연세대학교' ,'이화여자대학교', '홍익대학교'])
 
   
   
