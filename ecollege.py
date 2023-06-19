@@ -384,4 +384,4 @@ st.sidebar.markdown("""
     </div>
     """.format(st.session_state['point']), unsafe_allow_html=True)
   
-st.text(f'{user_name}님의 적립포인트는 {user_point}입니다')
+st.text(f'{st.session_state.user_name_input}님의 적립포인트는 {user_point}입니다')
