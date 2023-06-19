@@ -89,19 +89,8 @@ def classification(image):
   prediction = model.predict(np.expand_dims(data, axis=0))
   predicted_class_index = np.argmax(prediction)
   predicted_label = labels[predicted_class_index]
-  price_dict = {'캔':30, '플라스틱': 20, '유리': 20}
-  if predicted_label == '확인불가':
-    st.markdown("""
-                <div style="background-color: #dbead5; color: #000000; padding: 10px;text-align: center;">
-                    확인이 불가합니다. 올바르게 배출해주세요. 
-                </div>
-                """.format(st.session_state['point']), unsafe_allow_html=True) 
-  else:
-    st.markdown("""
-            <div style="background-color: #dbead5; color: #000000; padding: 10px;text-align: center;">
-                {}을(를) 배출하셨습니다. {}포인트가 지급되었습니다!
-            </div>
-            """.format(predicted_label,price_dict[predicted_label]), unsafe_allow_html=True)
+  return predicted_label
+  
 
   
   
@@ -112,13 +101,11 @@ if 'point' not in st.session_state:
 
 ## 메인 페이지 ##
 st.title('🍀에코리지')
-user_name = st.text_input("이름을 입력하세요")
-if user_name:
-  st.sidebar.text(f'{user_name}님, Ecollege에 오신걸 환영합니다!')
-campus = st.radio('재학중인 학교를 선택하세요', ['서강대학교', '연세대학교' ,'이화여자대학교', '홍익대학교'])
 user_point = 0
 
 
+option0 = st.sidebar.selectbox('🌱마이페이지',
+('메뉴를 선택해주세요','회원정보', '내 포인트 확인하러 가기'))
 
 option1 = st.sidebar.selectbox(
   '🌳실천하기',
@@ -127,6 +114,7 @@ option1 = st.sidebar.selectbox(
 option2 = st.sidebar.selectbox(
   '💰모은 포인트 사용하러 가기 GoGo',
 ('메뉴를 선택해주세요','사용 가능한 매장 보러가기', '자전거 타러가기'))
+
 for i in range(15):
   st.sidebar.write("")
 st.sidebar.markdown("""
@@ -135,7 +123,15 @@ st.sidebar.markdown("""
     </div>
     """.format(st.session_state['point']), unsafe_allow_html=True)
 
-
+## 마이페이지 ##
+if option0 == '회원정보':
+  user_name = st.text_input("이름을 입력하세요")
+  if user_name:
+    st.sidebar.text(f'{user_name}님, Ecollege에 오신걸 환영합니다!')
+  campus = st.radio('재학중인 학교를 선택하세요', ['서강대학교', '연세대학교' ,'이화여자대학교', '홍익대학교'])
+if option0 == '내 포인트 확인하러 가기':
+  
+  
 
 ## 영수증 인식 페이지 ##
 if option1 == '영수증 인식하러 가기':
@@ -171,6 +167,7 @@ if option1 == '영수증 인식하러 가기':
                   {}을(를) 이용하셨군요! {}포인트가 지급되었습니다!
               </div>
               """.format(sentence,point), unsafe_allow_html=True)
+        user_point += point
 
   else:
     upload_file = st.file_uploader('종이영수증을 촬영해주세요 ', type=['jpg', 'png', 'jpeg'])
@@ -189,6 +186,7 @@ if option1 == '영수증 인식하러 가기':
                     {}을(를) 이용하셨군요! {}포인트가 지급되었습니다!
                 </div>
                 """.format(sentence,point), unsafe_allow_html=True)
+          user_point += point
 
 
 ## 재활용품 배출 페이지 ##  
@@ -247,7 +245,21 @@ if option1 == '재활용품 분리배출 하러 가기':
     # 이미지 인식
     with tempfile.NamedTemporaryFile(delete=False, suffix=os.path.splitext(upload_file.name)[1]) as temp_file:
       img.save(temp_file.name,)
-      classification(temp_file.name)
+      predicted_label = classification(temp_file.name)
+      price_dict = {'캔':30, '플라스틱': 20, '유리': 20}
+      if predicted_label == '확인불가':
+        st.markdown("""
+                    <div style="background-color: #dbead5; color: #000000; padding: 10px;text-align: center;">
+                        확인이 불가합니다. 올바르게 배출해주세요. 
+                    </div>
+                    """.format(st.session_state['point']), unsafe_allow_html=True) 
+      else:
+        st.markdown("""
+                <div style="background-color: #dbead5; color: #000000; padding: 10px;text-align: center;">
+                    {}을(를) 배출하셨습니다. {}포인트가 지급되었습니다!
+                </div>
+                """.format(predicted_label,price_dict[predicted_label]), unsafe_allow_html=True)
+        user_point += price_dict[predicted_label]
     text_placeholder.empty()
     
     
