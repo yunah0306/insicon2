@@ -378,7 +378,7 @@ if option2 == '자전거 타러가기':
 for i in range(8):
   st.sidebar.write("")
   
-st.sidebar.subheader(f'현재 적립포인트는 {user_point}p입니다')
+st.sidebar.subheader(f'현재 적립포인트는 {st.session_state["user_point"]}p입니다')
 st.sidebar.markdown("""
     <div style="background-color: #dbead5; color: #000000; padding: 10px; text-align: center;">
     녹색자매님이 100p 적립했습니다!
