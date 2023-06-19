@@ -113,7 +113,7 @@ option1 = st.sidebar.selectbox(
 ('메뉴를 선택해주세요','영수증 인식하러 가기', '재활용품 분리배출 하러 가기'))
 
 if option1 == '영수증 인식하러 가기':
-  option2 = '메뉴를 선택해주세요'
+  #option2 = '메뉴를 선택해주세요'
   st.subheader("🧾영수증 인식")
   st.markdown("""
     <div style="background-color: #dbead5; color: #000000; padding: 10px; text-align: center;">
@@ -169,7 +169,7 @@ if option1 == '영수증 인식하러 가기':
 
 ## 재활용품 배출 페이지 ##  
 if option1 == '재활용품 분리배출 하러 가기':
-  option2 = '메뉴를 선택해주세요'
+  # option2 = '메뉴를 선택해주세요'
   st.subheader("♻️재활용품 분리배출")
   if st.button("반납 방법 알아보기"):
     img = Image.open('안내 사진/음료 투입.png')
@@ -369,15 +369,13 @@ if option2 == '자전거 타러가기':
  
   
 ## 마이페이지 ##
-option0 = st.sidebar.selectbox('🌱마이페이지',('메뉴를 선택해주세요','회원정보', '내 포인트 확인하러 가기'))
+option0 = st.sidebar.selectbox('🌱마이페이지',('메뉴를 선택해주세요','회원정보', '이용내역 보러가기'))
 if option0 == '회원정보' :
   user_name = st.text_input("이름을 입력하세요", key="user_name_input")
   if user_name:
     st.text(f'{st.session_state.user_name_input}님, Ecollege에 오신걸 환영합니다!')
   campus = st.radio('재학중인 학교를 선택하세요', ['서강대학교', '연세대학교' ,'이화여자대학교', '홍익대학교'])
-if option0 == '내 포인트 확인하러 가기':
-  st.write(user_point)
-  
+
 for i in range(8):
   st.sidebar.write("")
 st.sidebar.markdown("""
@@ -386,3 +384,4 @@ st.sidebar.markdown("""
     </div>
     """.format(st.session_state['point']), unsafe_allow_html=True)
   
+st.text({f'{user_name}님의 적립포인트는 {user_point}입니다')
