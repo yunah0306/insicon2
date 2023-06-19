@@ -127,6 +127,17 @@ option1 = st.sidebar.selectbox(
 option2 = st.sidebar.selectbox(
   '💰모은 포인트 사용하러 가기 GoGo',
 ('메뉴를 선택해주세요','사용 가능한 매장 보러가기', '자전거 타러가기'))
+st.sidebar.write("")
+st.sidebar.write("")
+st.sidebar.write("")
+st.sidebar.write("")
+st.sidebar.write("")
+st.sidebar.write("")
+st.sidebar.markdown("""
+    <div style="background-color: #dbead5; color: #000000; padding: 10px; text-align: center;">
+    녹색자매님이 100p 적립했습니다!
+    </div>
+    """.format(st.session_state['point']), unsafe_allow_html=True)
 
 
 
