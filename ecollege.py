@@ -368,13 +368,13 @@ if option2 == '자전거 타러가기':
 ## 마이페이지 ##
 my_button = st.sidebar.button('🌱마이페이지')
 if my_button:
-  user_name = st.text_input("이름을 입력하세요")
-  if user_name:
-    st.text(f'{user_name}님, Ecollege에 오신걸 환영합니다!')
-  campus = st.radio('재학중인 학교를 선택하세요', ['서강대학교', '연세대학교' ,'이화여자대학교', '홍익대학교'])
-  check_point = st.button('내 포인트 확인하기')
-  if check_point:
-    st.write(f'{user_name}님의 적립포인트는 {user_point}p입니다')
+  user_name = st.text_input("이름을 입력하세요", key="user_name_input")
+  if st.session_state.user_name_input:  # 사용자가 이름을 입력한 경우
+      st.text(f'{st.session_state.user_name_input}님, Ecollege에 오신걸 환영합니다!')
+      campus = st.radio('재학중인 학교를 선택하세요', ['서강대학교', '연세대학교' ,'이화여자대학교', '홍익대학교'])
+      check_point = st.button('내 포인트 확인하기')
+      if check_point:
+          st.write(f'{st.session_state.user_name_input}님의 적립포인트는 {user_point}p입니다')
   
   
 for i in range(8):
