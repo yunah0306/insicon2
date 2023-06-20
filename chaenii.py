@@ -143,7 +143,7 @@ if st.session_state.option0 == "대학교 인증하기":
 #     campus = st.sidebar.radio('재학중인 학교를 선택하세요', ['서강대학교', '연세대학교' ,'이화여자대학교', '홍익대학교'])
 #     st.session_state.campus = campus  # update the campus in the session state
     if st.button("대학교 인증 방법"):
-      img = Image.open('src/안내 사진/인증 방식_6.png')
+      img = Image.open('안내 사진/인증 방식_6.png')
       # img = img.resize((256, 256))
       st.image(img)
     rounded_div = """
