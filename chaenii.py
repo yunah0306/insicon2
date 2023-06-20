@@ -104,9 +104,9 @@ if 'point' not in st.session_state:
 # 초기 세션 상태 설정
 if 'option0' not in st.session_state:
     st.session_state.option0 = '홈 화면'
-if 'option1' not in st.session_state:
+#if 'option1' not in st.session_state:
     st.session_state.option1 = '메뉴를 선택해주세요'
-if 'option2' not in st.session_state:
+##if 'option2' not in st.session_state:
     st.session_state.option2 = '메뉴를 선택해주세요'
 if 'point' not in st.session_state:
   st.session_state['point'] = 0
@@ -154,7 +154,7 @@ if st.session_state.option0 == "대학교 인증하기":
     st.markdown(rounded_div, unsafe_allow_html=True)
 
 else:
-    st.session_state.option1 = st.sidebar.selectbox(
+    option1 = st.sidebar.selectbox(
        '🌳실천하기',
 ('메뉴를 선택해주세요','영수증 인식하러 가기', '재활용품 분리배출 하러 가기'),
   index=['메뉴를 선택해주세요', '영수증 인식하러 가기', '재활용품 분리배출 하러 가기'].index(st.session_state.option1)
