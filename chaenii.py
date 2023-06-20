@@ -204,16 +204,16 @@ if st.session_state.option1 == '영수증 인식하러 가기':
         rounded_div = """
       <div style="background-color: #d4fbbd; color: #006a34
       ; padding: 10px; text-align: center; border-radius: 10px;">
-          <b> {sentence}을를 사용하셨군요! {}포인트가 지급되었습니다! </b>
+          <b> {}을(를) 사용하셨군요! {}포인트가 지급되었습니다! </b>
       </div>
       """
         st.markdown(rounded_div.format(sentence,st.session_state['point']), unsafe_allow_html=True)
           
               # st.markdown("""
               #       <div style="background-color: #f4fbee; color: #006a34; padding: 10px; text-align: center;">
-              #           다회용기를 사용하셨군요! {}포인트가 지급되었습니다!
+              #           {}를 사용하셨군요! {}포인트가 지급되었습니다!
               #       </div>
-              #       """.format(point), unsafe_allow_html=True)
+              #       """.format(sentence,point), unsafe_allow_html=True)
         st.session_state["user_point"] += st.session_state['point']
       
   if receipt_type =='종이영수증':
@@ -239,10 +239,10 @@ if st.session_state.option1 == '영수증 인식하러 가기':
         rounded_div = """
       <div style="background-color: #d4fbbd; color: #006a34
       ; padding: 10px; text-align: center; border-radius: 10px;">
-          <b> 다회용기를 사용하셨군요! {}포인트가 지급되었습니다! </b>
+          <b> {}을(를) 사용하셨군요! {}포인트가 지급되었습니다! </b>
       </div>
       """
-        st.markdown(rounded_div.format(st.session_state['point']), unsafe_allow_html=True)
+        st.markdown(rounded_div.format(sentence,st.session_state['point']), unsafe_allow_html=True)
         st.session_state["user_point"] += st.session_state['point']
                
 #재활용품 페이지
