@@ -127,9 +127,7 @@ if 'initialized' not in st.session_state:
     st.markdown(rounded_div, unsafe_allow_html=True)
 option0 = st.sidebar.selectbox(
     '👤마이페이지',
-    ('홈 화면', '대학교 인증하기'),
-    index=['홈 화면', '대학교 인증하기'].index(st.session_state.option0)
-)
+    ('홈 화면', '대학교 인증하기'))
 if st.session_state.option0 == "대학교 인증하기":
     user_name = st.text_input("이름을 입력하세요", key="user_name_input")
     if user_name:
