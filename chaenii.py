@@ -102,12 +102,12 @@ if 'point' not in st.session_state:
 ### 앱 화면 ###  
 
 # 초기 세션 상태 설정
-#if 'option0' not in st.session_state:
-    #st.session_state.option0 = '홈 화면'
-#if 'option1' not in st.session_state:
-    #st.session_state.option1 = '메뉴를 선택해주세요'
-#if 'option2' not in st.session_state:
-    #st.session_state.option2 = '메뉴를 선택해주세요'
+if 'option0' not in st.session_state:
+    st.session_state.option0 = '홈 화면'
+if 'option1' not in st.session_state:
+    st.session_state.option1 = '메뉴를 선택해주세요'
+if 'option2' not in st.session_state:
+    st.session_state.option2 = '메뉴를 선택해주세요'
 if 'point' not in st.session_state:
   st.session_state['point'] = 0
 if 'user_point' not in st.session_state:
@@ -125,7 +125,7 @@ if 'initialized' not in st.session_state:
     </div>
     """.format(st.session_state['point'])
     st.markdown(rounded_div, unsafe_allow_html=True)
-option0 = st.sidebar.selectbox(
+st.session_state.option0 = st.sidebar.selectbox(
     '👤마이페이지',
     ('홈 화면', '대학교 인증하기'))
 if st.session_state.option0 == "대학교 인증하기":
@@ -151,13 +151,13 @@ if st.session_state.option0 == "대학교 인증하기":
     """.format(st.session_state['point'])
     st.markdown(rounded_div, unsafe_allow_html=True)
 
-else:
-    option1 = st.sidebar.selectbox(
-       '🌳실천하기',
+
+st.session_state.option1 = st.sidebar.selectbox(
+   '🌳실천하기',
 ('메뉴를 선택해주세요','영수증 인식하러 가기', '재활용품 분리배출 하러 가기'))
-  
-    option2 = st.sidebar.selectbox(
-                  '💰모은 포인트 사용하러 가기 GoGo',
+
+st.session_state.option2 = st.sidebar.selectbox(
+              '💰모은 포인트 사용하러 가기 GoGo',
 ('메뉴를 선택해주세요','사용 가능한 매장 보러가기','자전거 타러가기'))
 
 #영수증 인식 페이지  
