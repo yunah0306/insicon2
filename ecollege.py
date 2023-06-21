@@ -242,7 +242,7 @@ if st.session_state.option1 == '영수증 인식하러 가기':
                
 #재활용품 페이지
 if st.session_state.option1 == '재활용품 분리배출 하러 가기':
-  st.subheader("♻️재활용품 분리배출")
+  st.title("♻️재활용품 분리배출")
   if st.button("반납 방법 알아보기"):
     img = Image.open('안내 사진/음료 투입.png')
     img = img.resize((256, 256))
