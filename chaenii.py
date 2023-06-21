@@ -106,7 +106,7 @@ if 'option0' not in st.session_state:
     st.session_state.option0 = '홈 화면'
 #if 'option1' not in st.session_state:
     st.session_state.option1 = '메뉴를 선택해주세요'
-##if 'option2' not in st.session_state:
+#if 'option2' not in st.session_state:
     st.session_state.option2 = '메뉴를 선택해주세요'
 if 'point' not in st.session_state:
   st.session_state['point'] = 0
@@ -117,14 +117,14 @@ if 'campus' not in st.session_state:
   
 ## 메인 페이지 ##
 st.title('🍀에코리지')
-if 'initialized' not in st.session_state:
-    st.session_state['initialized'] = True
-    rounded_div = """
-    <div style="background-color: #f4fbee; color: #006a34; padding: 10px; text-align: center; border-radius: 10px;">
-    왼쪽 사이드바의 [👤마이페이지-대학교 인증하기]를 클릭하여 정보를 입력해주세요.
-    </div>
-    """.format(st.session_state['point'])
-    st.markdown(rounded_div, unsafe_allow_html=True)
+#if 'initialized' not in st.session_state:
+    #st.session_state['initialized'] = True
+rounded_div = """
+<div style="background-color: #f4fbee; color: #006a34; padding: 10px; text-align: center; border-radius: 10px;">
+왼쪽 사이드바의 [👤마이페이지-대학교 인증하기]를 클릭하여 정보를 입력해주세요.
+</div>
+""".format(st.session_state['point'])
+st.markdown(rounded_div, unsafe_allow_html=True)
 st.session_state.option0 = st.sidebar.selectbox(
     '👤마이페이지',
     ('홈 화면', '대학교 인증하기'),
@@ -153,17 +153,17 @@ if st.session_state.option0 == "대학교 인증하기":
     """.format(st.session_state['point'])
     st.markdown(rounded_div, unsafe_allow_html=True)
 
-else:
-    option1 = st.sidebar.selectbox(
-       '🌳실천하기',
+
+option1 = st.sidebar.selectbox(
+   '🌳실천하기',
 ('메뉴를 선택해주세요','영수증 인식하러 가기', '재활용품 분리배출 하러 가기'),
-  index=['메뉴를 선택해주세요', '영수증 인식하러 가기', '재활용품 분리배출 하러 가기'].index(st.session_state.option1)
-    )
-    st.session_state.option2 = st.sidebar.selectbox(
-                  '💰모은 포인트 사용하러 가기 GoGo',
+index=['메뉴를 선택해주세요', '영수증 인식하러 가기', '재활용품 분리배출 하러 가기'].index(st.session_state.option1)
+)
+st.session_state.option2 = st.sidebar.selectbox(
+              '💰모은 포인트 사용하러 가기 GoGo',
 ('메뉴를 선택해주세요','사용 가능한 매장 보러가기','자전거 타러가기'),
- index=['메뉴를 선택해주세요','사용 가능한 매장 보러가기', '자전거 타러가기'].index(st.session_state.option2)
-            )
+index=['메뉴를 선택해주세요','사용 가능한 매장 보러가기', '자전거 타러가기'].index(st.session_state.option2)
+        )
 
 #영수증 인식 페이지  
 if st.session_state.option1 == '영수증 인식하러 가기':
