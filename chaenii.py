@@ -105,9 +105,9 @@ if 'point' not in st.session_state:
 if 'option0' not in st.session_state:
     st.session_state.option0 = '홈 화면'
 #if 'option1' not in st.session_state:
-    st.session_state.option1 = '메뉴를 선택해주세요'
+    #st.session_state.option1 = '메뉴를 선택해주세요'
 #if 'option2' not in st.session_state:
-    st.session_state.option2 = '메뉴를 선택해주세요'
+    #st.session_state.option2 = '메뉴를 선택해주세요'
 if 'point' not in st.session_state:
   st.session_state['point'] = 0
 if 'user_point' not in st.session_state:
