@@ -105,9 +105,9 @@ if 'point' not in st.session_state:
 if 'option0' not in st.session_state:
     st.session_state.option0 = '홈 화면'
 #if 'option1' not in st.session_state:
-    #st.session_state.option1 = '메뉴를 선택해주세요'
-#if 'option2' not in st.session_state:
-    #st.session_state.option2 = '메뉴를 선택해주세요'
+    st.session_state.option1 = '메뉴를 선택해주세요'
+##if 'option2' not in st.session_state:
+    st.session_state.option2 = '메뉴를 선택해주세요'
 if 'point' not in st.session_state:
   st.session_state['point'] = 0
 if 'user_point' not in st.session_state:
@@ -119,20 +119,22 @@ if 'campus' not in st.session_state:
 st.title('🍀에코리지')
 if 'initialized' not in st.session_state:
     st.session_state['initialized'] = True
-rounded_div = """
-<div style="background-color: #f4fbee; color: #006a34; padding: 10px; text-align: center; border-radius: 10px;">
-왼쪽 사이드바의 [👤마이페이지-대학교 인증하기]를 클릭하여 정보를 입력해주세요.
-</div>
-""".format(st.session_state['point'])
-st.markdown(rounded_div, unsafe_allow_html=True)
+    rounded_div = """
+    <div style="background-color: #f4fbee; color: #006a34; padding: 10px; text-align: center; border-radius: 10px;">
+    왼쪽 사이드바의 [👤마이페이지-대학교 인증하기]를 클릭하여 정보를 입력해주세요.
+    </div>
+    """.format(st.session_state['point'])
+    st.markdown(rounded_div, unsafe_allow_html=True)
 st.session_state.option0 = st.sidebar.selectbox(
     '👤마이페이지',
-    ('홈 화면', '대학교 인증하기'))
+    ('홈 화면', '대학교 인증하기'),
+    index=['홈 화면', '대학교 인증하기'].index(st.session_state.option0)
+)
 if st.session_state.option0 == "대학교 인증하기":
     user_name = st.text_input("이름을 입력하세요", key="user_name_input")
     if user_name:
         st.text(f'🌱{st.session_state.user_name_input}님, college에 오신걸 환영합니다!')
-    campus = st.radio('재학중인 학교를 선택하세요', ['서강대학교', '연세대학교' ,'이화여자대학교', '홍익대학교'])
+    campus = st.sidebar.radio('재학중인 학교를 선택하세요', ['서강대학교', '연세대학교' ,'이화여자대학교', '홍익대학교'])
     st.session_state.campus = campus
 # if st.session_state.option0 == '대학교 인증하기':
 #     st.session_state.user_name = st.text_input("이름을 입력하세요", key="user_name_input")
@@ -151,13 +153,17 @@ if st.session_state.option0 == "대학교 인증하기":
     """.format(st.session_state['point'])
     st.markdown(rounded_div, unsafe_allow_html=True)
 
-
-option1 = st.sidebar.selectbox(
-   '🌳실천하기',
-('메뉴를 선택해주세요','영수증 인식하러 가기', '재활용품 분리배출 하러 가기'))
-st.session_state.option2 = st.sidebar.selectbox(
-              '💰모은 포인트 사용하러 가기 GoGo',
-('메뉴를 선택해주세요','사용 가능한 매장 보러가기','자전거 타러가기'))
+else:
+    option1 = st.sidebar.selectbox(
+       '🌳실천하기',
+('메뉴를 선택해주세요','영수증 인식하러 가기', '재활용품 분리배출 하러 가기'),
+  index=['메뉴를 선택해주세요', '영수증 인식하러 가기', '재활용품 분리배출 하러 가기'].index(st.session_state.option1)
+    )
+    st.session_state.option2 = st.sidebar.selectbox(
+                  '💰모은 포인트 사용하러 가기 GoGo',
+('메뉴를 선택해주세요','사용 가능한 매장 보러가기','자전거 타러가기'),
+ index=['메뉴를 선택해주세요','사용 가능한 매장 보러가기', '자전거 타러가기'].index(st.session_state.option2)
+            )
 
 #영수증 인식 페이지  
 if st.session_state.option1 == '영수증 인식하러 가기':
@@ -400,4 +406,3 @@ rounded_div = """
       </div>
       """
 st.sidebar.markdown(rounded_div.format(st.session_state['point']), unsafe_allow_html=True)
-
