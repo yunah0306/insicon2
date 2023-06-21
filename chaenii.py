@@ -134,7 +134,7 @@ if st.session_state.option0 == "대학교 인증하기":
     user_name = st.text_input("이름을 입력하세요", key="user_name_input")
     if user_name:
         st.text(f'🌱{st.session_state.user_name_input}님, college에 오신걸 환영합니다!')
-    campus = st.sidebar.radio('재학중인 학교를 선택하세요', ['서강대학교', '연세대학교' ,'이화여자대학교', '홍익대학교'])
+    campus = st.radio('재학중인 학교를 선택하세요', ['서강대학교', '연세대학교' ,'이화여자대학교', '홍익대학교'])
     st.session_state.campus = campus
 # if st.session_state.option0 == '대학교 인증하기':
 #     st.session_state.user_name = st.text_input("이름을 입력하세요", key="user_name_input")
@@ -154,7 +154,7 @@ if st.session_state.option0 == "대학교 인증하기":
     st.markdown(rounded_div, unsafe_allow_html=True)
 
 else:
-    option1 = st.sidebar.selectbox(
+    st.session_state.option1 = st.sidebar.selectbox(
        '🌳실천하기',
 ('메뉴를 선택해주세요','영수증 인식하러 가기', '재활용품 분리배출 하러 가기'),
   index=['메뉴를 선택해주세요', '영수증 인식하러 가기', '재활용품 분리배출 하러 가기'].index(st.session_state.option1)
