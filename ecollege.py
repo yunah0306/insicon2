@@ -361,55 +361,6 @@ if st.session_state.option2 == '사용 가능한 매장 보러가기':
       st.image(img6, caption='컴포즈')
 
 
-    import streamlit as st
-    import folium
-    from streamlit_folium import folium_static
-    from folium.features import DivIcon
-    
-    cafes =[
-        {"name": "스타벅스 서강대프라자점", "latitude": 37.5521044,  "longitude": 126.9409838739227},
-        {"name": "커피브레이크", "latitude": 37.5469645, "longitude": 126.9440979},
-        {"name": "투썸플레이스 서강대점", "latitude": 37.5469645,  "longitude": 126.9440979},
-        {"name": "파리바게트 마포염리점", "latitude":37.5521044,  "longitude": 126.9409838739227},
-        {"name": "스타벅스 서강대점", "latitude": 37.5521044, "longitude":  126.9409838739227},
-        {"name": "카페아이엔지 서강대학교점", "latitude": 37.5521044, "longitude":  126.9409838739227},
-        {"name": "공차 서강대점", "latitude": 37.5478347, "longitude": 126.941883},
-        {"name": "그라찌에 서강대점", "latitude": 37.5521044,  "longitude": 126.9409838739227}
-    ]
-    
-    restaurants = [
-        {"name": "샐러디 서강대점", "latitude": 37.5478347, "longitude": 126.941883},
-        {"name": "한솥도시락 서강대점", "latitude": 37.5478347, "longitude": 126.941883},
-        {"name": "지지고 서강대점", "latitude": 37.5478347, "longitude": 126.941883},
-        {"name": "써브웨이 서강대점", "latitude":37.5469645, "longitude": 126.9440979}
-    ]
-    
-    # 서강대학교의 중심 위치
-    latitude = 37.5521044
-    longitude = 126.9409838739227
-    
-    # 지도 생성
-    m = folium.Map(location=[latitude, longitude], zoom_start=16)
-    
-    # 카페 마커 추가
-    for cafe in cafes:
-        folium.Marker(
-            location=[cafe["latitude"], cafe["longitude"]],
-            popup=cafe["name"],
-            icon=folium.Icon(color="blue", icon="info-sign"),
-        ).add_to(m)
-    
-    # 식당 마커 추가
-    for restaurant in restaurants:
-        folium.Marker(
-            location=[restaurant["latitude"], restaurant["longitude"]],
-            popup=restaurant["name"],
-            icon=folium.Icon(color="red", icon="info-sign"),
-        ).add_to(m)
-    
-    # streamlit에 지도 표시
-    folium_static(m)
-
   if st.session_state.campus == '연세대학교':
     st.subheader(f"{st.session_state.campus}에서 사용 가능한 매장입니다")
     st.write("")
